@@ -1,6 +1,8 @@
 # P-ANDROIDE
 Projet P-ANDROIDE de M1 : Recherche de consensus en robotique en essaim
 
+Lien original : http://androide.lip6.fr/?q=node/553
+
 On s'intéresse dans ce projet au problème du best-of-n en robotique essaim, dans lequel il s'agit pour un ensemble de robots aux capacités de communication et de calcul limitées. L'objectif de ce projet est d'étudier l'émergence de consensus en utilisant soit un algorithme dédié, soit un algorithme d'apprentissage. Le projet sera mené sur robots réels (une centaine de Kilobots), disponible à l'ISIR.
 
 Dans un premier temps, il s'agit d'implémenter un algorithme existant permettant d'atteindre de manière distribuée un consensus entre deux ressources. Ces ressources sont représentés par des objets émettant un signal infra-rouge donnant leur qualité, et l'objectif de l'essaim est de choisir la ressource de plus grande qualité. Ces deux ressources sont placées aux deux extrémités d'une arène rectangulaire, et une source de lumière permet en fuyant ou poursuivant la lumière de facilement se diriger vers l'une ou l'autre des deux ressources.
@@ -13,5 +15,3 @@ Bibliographie:
 * Valentini et al. (2016) Collective decision with 100 Kilobots: Speed versus accuracy in binary discrimination problems. AAMAS.
 * Valentini et al (2017) The best-of-n problem in robot swarms: Formalization, state of the art, and novel perspectives. Frontiers in AI and Robotics.
 * Bredeche et al. (2012) Environment-driven distributed evolutionary adaptation in a population of autonomous robotic agents. MCMDS.
-
-http://androide.lip6.fr/?q=node/553
