@@ -13,3 +13,5 @@ Bibliographie:
 * Valentini et al. (2016) Collective decision with 100 Kilobots: Speed versus accuracy in binary discrimination problems. AAMAS.
 * Valentini et al (2017) The best-of-n problem in robot swarms: Formalization, state of the art, and novel perspectives. Frontiers in AI and Robotics.
 * Bredeche et al. (2012) Environment-driven distributed evolutionary adaptation in a population of autonomous robotic agents. MCMDS.
+
+http://androide.lip6.fr/?q=node/553
