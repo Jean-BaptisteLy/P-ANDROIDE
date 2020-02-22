@@ -10,16 +10,45 @@ typedef enum {
 } motion_t;
 
 typedef enum {
+	BETTER,
+	WORSE,
+	NONE,
+	SUCCESS,
+} search_state_t;
+
+/*
+typedef enum {
 	NEIGHBOR_TOOCLOSE,
 	ALONE,
 } collision_state_t;
+*/
 
 typedef enum {
 	DISSEMINATION,
 	EXPLORATION,
 } state_t;
 
+typedef enum {
+	RANDOM_WALK,
+	PHOTOTAXIS,
+	ANTI_PHOTOTAXIS,
+} behavior_state_t;
+
 typedef struct {
+
+	behavior_state_t behavior_state;
+
+	/* Pour la lumière */
+	uint32_t intensity;
+    uint32_t lastIntensity;
+    search_state_t search_state;
+    uint32_t lastTicks;
+	uint32_t stepTicks;
+
+
+	uint8_t quality_of_site;
+	uint32_t dissemination_time;
+	uint32_t exploration_time;
 
 	// time
 	uint32_t last_time_update;
@@ -27,11 +56,10 @@ typedef struct {
 	state_t state;
 	//int tab_uid*;
 	uint8_t tab_uid[100];
-	uint8_t tab_uid_init[100];
 	uint8_t cpt_voisins;
 	uint8_t flag_voisin_deja_rencontre;
 
-	collision_state_t collision_state; 
+	//collision_state_t collision_state; 
 	uint8_t neighbor_distance;
     motion_t direction;
 

@@ -42,20 +42,18 @@ void set_motion(motion_t new_motion)
   case LEFT:
     mydata->direction = LEFT;
     smooth_set_motors(kilo_turn_left, 0);
-    //printf("left");
     break;
   case RIGHT:
     mydata->direction = RIGHT;
     smooth_set_motors(0, kilo_turn_right); 
-    //printf("right");
     break;
   default:
     break;
   }
 }
 
-int recherche (uint8_t tableau[], int tailleTab, int nombre) {
-  int i;
+int recherche (uint8_t tableau[], uint8_t tailleTab, uint8_t nombre) {
+  uint8_t i;
   for (i = 0; i < tailleTab; ++i) {
       if (tableau[i]==nombre)
           return 1;
@@ -63,101 +61,53 @@ int recherche (uint8_t tableau[], int tailleTab, int nombre) {
   return 0;
 }
 
-void loop() {
-  // Update distance estimate with every message
-  if (mydata->new_message) {
-    mydata->new_message = 0; // On remet le flag à O
-    /* Gestion des collisions entre les kilobots */
-    mydata->neighbor_distance = estimate_distance(&mydata->dist);
-    if (mydata->neighbor_distance < TOOCLOSE_DISTANCE) {
-      mydata->collision_state = NEIGHBOR_TOOCLOSE;
-    }
-    else {
-      mydata->collision_state = ALONE;
-    }
-    
-    /* GESTION DES OPINIONS DE SES VOISINS */
-    switch(mydata->state) {
-      case DISSEMINATION:
-        if (mydata->flag_a_listener) {
-          //printf("toto %d \n",mydata->flag_a_listener);
-          if(mydata->flag_voisin_deja_rencontre) {
-            break;
-          }
-          mydata->opinion_a ++;
-        }
-        else {
-          if(mydata->flag_voisin_deja_rencontre) {
-            break;
-          }
-          mydata->opinion_b ++;
-        }
-        break;
-      case EXPLORATION:
-        break;
-      default:
-        break;
-    }
-  }
-  
-  int temp;
-  switch(mydata->collision_state) {
-    case ALONE:
-      temp = rand() % 4;
-      //printf("%d",temp);
-      set_motion(temp);
-      break;
-    case NEIGHBOR_TOOCLOSE:
-      set_motion(FORWARD);
-      break;
-    default:
-      break;
-  }
-
-  /* CHOSES A AJOUTER :
-  - IDENTIFIANT UNIQUE POUR CHACUN DES KILOBOTS AFIN DE D'EVITER LES AVIS EN DOUBLE PROVENANT D'UN MEME VOISIN
-  - NE PAS OUBLIER DE REINITIALISER LE TABLEAU
-  - APPLIQUE LE MAJORITY RULE DANS LES 3 DERNIERES SECONDES SEULEMENT
-  // Update the state every 64 clock ticks (roughly 2 seconds).
-  if (kilo_ticks > (last_state_update + 64))
-  */
-
-  /* MAJORITY RULE */
-  // 2 secs : 64
-  if (kilo_ticks > (mydata->last_time_update + 155)) {
-    mydata->last_time_update = kilo_ticks;  
-    if (mydata->opinion_a > mydata->opinion_b) {
-      set_color(RGB(3,0,0));
-      mydata->opinion_a = 1;
-      mydata->opinion_b = 0;
-      mydata->flag_a_speaker = 1;
-    }
-    else if (mydata->opinion_a < mydata->opinion_b) {
-      set_color(RGB(0,0,3));
-      mydata->opinion_a = 0;
-      mydata->opinion_b = 1;
-      mydata->flag_a_speaker = 0;
-    }
-    else { // mydata->opinion_a == mydata->opinion_b --- en cas d'égalité, on garde son opinion
-      if(mydata->flag_a_speaker) {
+void majority_tule() { /* GESTION DES OPINIONS DE SES VOISINS */
+  uint32_t nb_ticks;
+  nb_ticks = mydata->quality_of_site * mydata->dissemination_time;
+  if (kilo_ticks > (mydata->last_time_update + nb_ticks - 93)) { // during the last three seconds
+    if (kilo_ticks > (mydata->last_time_update + nb_ticks)) {
+      mydata->last_time_update = kilo_ticks;  
+      if (mydata->opinion_a > mydata->opinion_b) {
         set_color(RGB(3,0,0));
         mydata->opinion_a = 1;
         mydata->opinion_b = 0;
         mydata->flag_a_speaker = 1;
       }
-      else {
+      else if (mydata->opinion_a < mydata->opinion_b) {
         set_color(RGB(0,0,3));
         mydata->opinion_a = 0;
         mydata->opinion_b = 1;
         mydata->flag_a_speaker = 0;
       }
+      else { // mydata->opinion_a == mydata->opinion_b --- en cas d'égalité, on garde son opinion
+        if(mydata->flag_a_speaker) {
+          set_color(RGB(3,0,0));
+          mydata->opinion_a = 1;
+          mydata->opinion_b = 0;
+          mydata->flag_a_speaker = 1;
+        }
+        else {
+          set_color(RGB(0,0,3));
+          mydata->opinion_a = 0;
+          mydata->opinion_b = 1;
+          mydata->flag_a_speaker = 0;
+        }
+      }
+      mydata->state = EXPLORATION;
+      // VIDER LE TAB_UID
+      uint8_t i;
+      for(i=0;i<100;i++) {
+        mydata->tab_uid[i] = 232;
+      }
+      mydata->cpt_voisins = 0;
     }
-    // VIDER LE TAB_UID
-    uint8_t i;
-    for(i=0;i<100;i++) {
-      mydata->tab_uid[i] = 232;
-    }
-  }  
+  }
+}
+
+void random_walk() {
+  uint8_t temp;
+  temp = rand() % 4;
+  set_motion(temp);
   /*
   const uint8_t twobit_mask = 0b00000011;
   uint8_t rand_direction = rand_soft()&twobit_mask;
@@ -169,7 +119,62 @@ void loop() {
   else if (rand_direction == 3)
     set_motion(RIGHT);
   delay(1000);
-  */
+  */  
+}
+
+void explore() {
+  //random_walk();
+  if (kilo_ticks > (mydata->last_time_update + mydata->exploration_time)) {
+    mydata->state = DISSEMINATION;
+  }
+}
+
+void collisions() { /* Gestion des collisions entre les kilobots */
+  mydata->neighbor_distance = estimate_distance(&mydata->dist);
+  if (mydata->neighbor_distance < TOOCLOSE_DISTANCE) {
+    set_motion(FORWARD);
+  }
+  else {
+    random_walk();
+  }
+}
+
+void maj() {
+
+}
+
+void loop() {
+
+  if(mydata->state == DISSEMINATION) {
+    if (mydata->new_message) {
+      mydata->new_message = 0; // On remet le flag à O
+      collisions();      
+      if (mydata->flag_a_listener) {
+        if(!mydata->flag_voisin_deja_rencontre) {
+          mydata->opinion_a ++;
+        }            
+      }
+      else {
+        if(!mydata->flag_voisin_deja_rencontre) {
+          mydata->opinion_b ++;
+        }  
+      }  
+    }
+    else { // si aucun message reçu en cas de DISSEMINATION
+      random_walk();
+    }
+    majority_tule();
+  }
+  else if(mydata->state == EXPLORATION) {
+    if (mydata->new_message) {
+      mydata->new_message = 0; // On remet le flag à O
+      collisions();
+    }
+    else {
+      random_walk();
+    }
+    explore();
+  }    
 }
 
 void stallCollision() {
@@ -227,11 +232,12 @@ void message_tx_succes() { // utile si l'on veut un accusé de réception pour l
 
 /* LISTENER */
 void message_rx(message_t *msg, distance_measurement_t *dist) {
-    //mydata->rcvd_message = *msg; // store the incoming message
-    mydata->new_message = 1; // set the flag to 1 to indicate that a new message arrived (en gros c'est un "accusé de réception" mais pour le listener)
-    mydata->dist = *dist;
-    mydata->flag_a_listener = msg->data[0];
-    // à remplir le tableau des uids ici
+  //mydata->rcvd_message = *msg; // store the incoming message
+  mydata->new_message = 1; // set the flag to 1 to indicate that a new message arrived (en gros c'est un "accusé de réception" mais pour le listener)
+  mydata->dist = *dist;
+  mydata->flag_a_listener = msg->data[0];
+  // à remplir le tableau des uids ici
+  if(mydata->state == DISSEMINATION) {
     if(recherche(mydata->tab_uid,100,msg->data[1])) {
       mydata->flag_voisin_deja_rencontre = 1;
     }
@@ -240,11 +246,12 @@ void message_rx(message_t *msg, distance_measurement_t *dist) {
       mydata->tab_uid[mydata->cpt_voisins] = msg->data[1];
       mydata->cpt_voisins ++;
     }
+  }
 }
 
 void setup() // initialisation au tout début, une seule fois
 {
-  mydata->collision_state = ALONE;
+  //mydata->collision_state = ALONE;
   mydata->neighbor_distance = 0;
   mydata->direction = FORWARD;
   mydata->new_message = 0;
@@ -255,7 +262,15 @@ void setup() // initialisation au tout début, une seule fois
   mydata->cpt_voisins = 0;
   mydata->flag_voisin_deja_rencontre = 0;
 
-  mydata->last_time_update = 0;
+  mydata->last_time_update = kilo_ticks;
+
+  mydata->quality_of_site = 1;
+  // conversion en nombre de ticks
+  mydata->dissemination_time = 15624; // 8,4 minutes
+  mydata->exploration_time = 11294; // 6,072 minutes
+
+  mydata->dissemination_time = 310; // 10 secondes
+  mydata->exploration_time = 124; // 4 secondes
 
   setup_message();
 
@@ -283,11 +298,11 @@ static char botinfo_buffer[10000];
 char *cb_botinfo(void)
 {
   char *p = botinfo_buffer;
-  p += sprintf (p, "ID: %d \n", kilo_uid);  
-  /*if (mydata->collision_state == NEIGHBOR_TOOCLOSE)
-    p += sprintf (p, "Collision State: NEIGHBOR_TOOCLOSE \n");
-  if (mydata->collision_state == ALONE)
-    p += sprintf (p, "Collision State: ALONE \n");*/
+  //p += sprintf (p, "ID: %d \n", kilo_uid);  
+  if (mydata->state == DISSEMINATION)
+    p += sprintf (p, "State: DISSEMINATION \n");
+  if (mydata->state == EXPLORATION)
+    p += sprintf (p, "State: EXPLORATION \n");
   //p += sprintf (p, "Neighbor Distance: %d \n", mydata->neighbor_distance);
   //p += sprintf (p, "Message reçu: %d \n", mydata->rcvd_message);
   //p += sprintf (p, "Direction: %d \n", mydata->direction);
@@ -316,13 +331,23 @@ int16_t boundaries(double x, double y, double * dx, double * dy) {
     return 1; // obstacle à droite et/ou en bas
   }  
 }
+
+int16_t circle_barrier(double x, double y, double * dx, double * dy) {
+  double d = sqrt(x*x + y*y);
+  if (d < 500.0)
+    return 0;
+  *dx = -x/d;
+  *dy = -y/d;
+  return 1;
+}
 #endif
 
 int main() {
   kilo_init();
   kilo_message_rx = message_rx;
   SET_CALLBACK(botinfo, cb_botinfo);
-  SET_CALLBACK(obstacles, boundaries);
+  //SET_CALLBACK(obstacles, boundaries);
+  SET_CALLBACK(obstacles, circle_barrier);
   //kilo_message_tx = message_tx_uid;
   kilo_message_tx = message_tx;
   //kilo_message_tx = message_tx_uid;

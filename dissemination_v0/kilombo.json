@@ -2,7 +2,7 @@
     "botName" : "dissemination",
     "randSeed" : 1,
     "nBots" : 50,
-    "formation": "pile",
+    "formation": "random",
     "timeStep" : 0.0416666,
     "simulationTime" : 0,
     "commsRadius" : 70,
