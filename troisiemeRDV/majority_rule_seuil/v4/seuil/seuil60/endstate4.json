@@ -1,0 +1,1005 @@
+{
+  "bot_states": [
+    {
+      "ID": 0,
+      "direction": 93.299335416340611,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -69.716551234641727,
+      "y_position": -15.272936588141508
+    },
+    {
+      "ID": 1,
+      "direction": 89.848679491444287,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 221.14019284750827,
+      "y_position": 178.60233988767487
+    },
+    {
+      "ID": 2,
+      "direction": 102.3745151970775,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 480.68888529651088,
+      "y_position": 194.29450954991626
+    },
+    {
+      "ID": 3,
+      "direction": 79.542945002235825,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 316.02164288916094,
+      "y_position": 356.82593919012618
+    },
+    {
+      "ID": 4,
+      "direction": 85.498353769650024,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 221.70291270671134,
+      "y_position": 273.5694734432696
+    },
+    {
+      "ID": 5,
+      "direction": 103.06309225004647,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 303.83770922551776,
+      "y_position": 128.75426328637755
+    },
+    {
+      "ID": 6,
+      "direction": 33.463316801563181,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.75798561990064,
+      "y_position": -3530.448683090905
+    },
+    {
+      "ID": 7,
+      "direction": 39.494356383774139,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.29097119549431,
+      "y_position": -3567.9127816524692
+    },
+    {
+      "ID": 8,
+      "direction": 93.299335416340611,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -164.09830359470789,
+      "y_position": 374.20224409010984
+    },
+    {
+      "ID": 9,
+      "direction": 84.937144477332666,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 368.32289074723843,
+      "y_position": 139.04669084726027
+    },
+    {
+      "ID": 10,
+      "direction": 104.79470127042944,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -309.51173220936994,
+      "y_position": -332.73849086340533
+    },
+    {
+      "ID": 11,
+      "direction": 104.52500752164264,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 260.20017739992215,
+      "y_position": -151.83639915370628
+    },
+    {
+      "ID": 12,
+      "direction": 64.454597451182309,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.14480871505873,
+      "y_position": -3410.1124504033833
+    },
+    {
+      "ID": 13,
+      "direction": 129.03832728989082,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 794.10506383973245,
+      "y_position": -54.290303133848525
+    },
+    {
+      "ID": 14,
+      "direction": 95.632882713392704,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 268.36546892579429,
+      "y_position": 117.50012090955032
+    },
+    {
+      "ID": 15,
+      "direction": 97.953544155173574,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 265.50190884135748,
+      "y_position": -90.862744434613859
+    },
+    {
+      "ID": 16,
+      "direction": 83.559795647076882,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 140.96477830050287,
+      "y_position": 373.94797386761576
+    },
+    {
+      "ID": 17,
+      "direction": 83.309009505130604,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 296.03914187602862,
+      "y_position": 385.3151721202434
+    },
+    {
+      "ID": 18,
+      "direction": 84.429032119712389,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.38211549116431,
+      "y_position": -3338.9258065016884
+    },
+    {
+      "ID": 19,
+      "direction": 109.73200800253412,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.03673514968057,
+      "y_position": -3167.6393084948695
+    },
+    {
+      "ID": 20,
+      "direction": 89.070355956948418,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -302.705286144441,
+      "y_position": 298.39792058749168
+    },
+    {
+      "ID": 21,
+      "direction": 89.008647090401311,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.97440011161132,
+      "y_position": -3017.8519082658313
+    },
+    {
+      "ID": 22,
+      "direction": 104.17126504272629,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 234.93432713206496,
+      "y_position": 549.57534509488369
+    },
+    {
+      "ID": 23,
+      "direction": 66.957580248498715,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 244.65581040195423,
+      "y_position": 64.877528067235616
+    },
+    {
+      "ID": 24,
+      "direction": 102.23603138793756,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -43.493309571280804,
+      "y_position": 280.1602216703123
+    },
+    {
+      "ID": 25,
+      "direction": 95.331395569549386,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -162.11328111090432,
+      "y_position": 167.68816504326759
+    },
+    {
+      "ID": 26,
+      "direction": 98.069688696777504,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 362.62165004466101,
+      "y_position": 310.39012690733682
+    },
+    {
+      "ID": 27,
+      "direction": 104.1830068968568,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 353.97965859038061,
+      "y_position": -80.457533194049134
+    },
+    {
+      "ID": 28,
+      "direction": 121.42350881265256,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.62556358729319,
+      "y_position": -2912.5699865194924
+    },
+    {
+      "ID": 29,
+      "direction": 108.73311559560219,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.8251953142501,
+      "y_position": -3204.0266520893292
+    },
+    {
+      "ID": 30,
+      "direction": 92.412443387733177,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 151.60849904157192,
+      "y_position": -191.40141120720068
+    },
+    {
+      "ID": 31,
+      "direction": 91.208480286464763,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 220.0157337045292,
+      "y_position": 454.03794128578642
+    },
+    {
+      "ID": 32,
+      "direction": 89.834347732704529,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 753.51139570624571,
+      "y_position": 350.74961000819042
+    },
+    {
+      "ID": 33,
+      "direction": 126.52142284235248,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -599.55064958870287,
+      "y_position": 266.00001654339542
+    },
+    {
+      "ID": 34,
+      "direction": 108.33834182022436,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -125.50559372159992,
+      "y_position": 252.46998248560598
+    },
+    {
+      "ID": 35,
+      "direction": 114.10186753169182,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 238.96175567309626,
+      "y_position": 331.94291234357962
+    },
+    {
+      "ID": 36,
+      "direction": 125.95367359551669,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -56.499823786549577,
+      "y_position": 30.328863856115486
+    },
+    {
+      "ID": 37,
+      "direction": 85.506771230501926,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -64.873147732819675,
+      "y_position": 150.63101629010822
+    },
+    {
+      "ID": 38,
+      "direction": 83.716669314593602,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 800.4895332536986,
+      "y_position": -3238.5577090015099
+    },
+    {
+      "ID": 39,
+      "direction": 117.7944810754904,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 232.28855361874528,
+      "y_position": 31.676803137002402
+    },
+    {
+      "ID": 40,
+      "direction": 112.07157655196659,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -26.92230432732255,
+      "y_position": -49.919166021720834
+    },
+    {
+      "ID": 41,
+      "direction": 109.80878180518812,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 495.00895493718826,
+      "y_position": 151.24155982389289
+    },
+    {
+      "ID": 42,
+      "direction": 90.094176545098378,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 70.998229078306053,
+      "y_position": 152.35182714170804
+    },
+    {
+      "ID": 43,
+      "direction": 99.850854747719112,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 229.96667424219922,
+      "y_position": -91.371541327434642
+    },
+    {
+      "ID": 44,
+      "direction": 122.90802238743433,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 307.89539458589547,
+      "y_position": 59.829480017460099
+    },
+    {
+      "ID": 45,
+      "direction": 108.83991381600472,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 237.95063482993652,
+      "y_position": 212.12420306082777
+    },
+    {
+      "ID": 46,
+      "direction": 88.721340016491766,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 156.44629330446668,
+      "y_position": 210.41926584849875
+    },
+    {
+      "ID": 47,
+      "direction": 89.39178648515211,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 621.89438306704255,
+      "y_position": 287.58939567447413
+    },
+    {
+      "ID": 48,
+      "direction": 127.69801710520031,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.91635290132615,
+      "y_position": 94.945855090038862
+    },
+    {
+      "ID": 49,
+      "direction": 102.54999413690402,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.97446642386262,
+      "y_position": 194.74080026226383
+    },
+    {
+      "ID": 50,
+      "direction": 102.87064807969962,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 99.552325065649342,
+      "y_position": 130.80553500915263
+    },
+    {
+      "ID": 51,
+      "direction": 111.87939187175473,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -35.713062315337126,
+      "y_position": -13.706574122817599
+    },
+    {
+      "ID": 52,
+      "direction": 77.230247884589232,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 21.265742787601351,
+      "y_position": 273.78559963380656
+    },
+    {
+      "ID": 53,
+      "direction": 98.500637405628297,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -59.656427383308539,
+      "y_position": 199.7738868200604
+    },
+    {
+      "ID": 54,
+      "direction": 89.461977898673908,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -12.169738617336671,
+      "y_position": 263.21491130753418
+    },
+    {
+      "ID": 55,
+      "direction": 97.383528608881164,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 344.08182774843124,
+      "y_position": 71.774442965126227
+    },
+    {
+      "ID": 56,
+      "direction": 90.973039796748111,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 231.389722864079,
+      "y_position": 137.41113214302686
+    },
+    {
+      "ID": 57,
+      "direction": 107.53541109696972,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 352.59303912713659,
+      "y_position": 349.90088835253806
+    },
+    {
+      "ID": 58,
+      "direction": 101.9001382556665,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.5419433017903,
+      "y_position": -2560.190136238512
+    },
+    {
+      "ID": 59,
+      "direction": 87.784760305782456,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -105.04779241882635,
+      "y_position": -17.854025673225674
+    },
+    {
+      "ID": 60,
+      "direction": 130.11833174646264,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -22.988941071374651,
+      "y_position": 19.060975738818726
+    },
+    {
+      "ID": 61,
+      "direction": 85.003773583605863,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.63222319325996,
+      "y_position": -2807.3118189323968
+    },
+    {
+      "ID": 62,
+      "direction": 104.72373140140384,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -52.735316017574405,
+      "y_position": 65.599952709112998
+    },
+    {
+      "ID": 63,
+      "direction": 107.97507929818978,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.54496590062161,
+      "y_position": -2982.8919665136364
+    },
+    {
+      "ID": 64,
+      "direction": 108.70224875128443,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 338.62971788127987,
+      "y_position": 158.64963040081923
+    },
+    {
+      "ID": 65,
+      "direction": 121.93686420064714,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.03777297774536,
+      "y_position": -19.792654407870728
+    },
+    {
+      "ID": 66,
+      "direction": 95.295132789215543,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -268.08255816855927,
+      "y_position": 299.95663880071811
+    },
+    {
+      "ID": 67,
+      "direction": 78.958099654809189,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.89891086329135,
+      "y_position": -3373.7600778055521
+    },
+    {
+      "ID": 68,
+      "direction": 113.53005872743489,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -113.90527650778664,
+      "y_position": 50.933586035150846
+    },
+    {
+      "ID": 69,
+      "direction": 97.174117889330475,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.63867806270684,
+      "y_position": -2600.7888588645892
+    },
+    {
+      "ID": 70,
+      "direction": 114.75750518924744,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 201.65362250139603,
+      "y_position": 244.39984203798511
+    },
+    {
+      "ID": 71,
+      "direction": 46.594456218439923,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.64409286706132,
+      "y_position": -3457.8722530896671
+    },
+    {
+      "ID": 72,
+      "direction": 76.528202236159572,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 187.62994051278574,
+      "y_position": 190.79642395749718
+    },
+    {
+      "ID": 73,
+      "direction": 95.619892735995052,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 316.52957741802095,
+      "y_position": 95.927733773842249
+    },
+    {
+      "ID": 74,
+      "direction": 82.606302326718833,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -211.81710670835378,
+      "y_position": 144.63909345977447
+    },
+    {
+      "ID": 75,
+      "direction": 92.215779421976194,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": -254.64061535170282,
+      "y_position": -289.02017222731138
+    },
+    {
+      "ID": 76,
+      "direction": 103.31896504232522,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 553.10454429667982,
+      "y_position": 218.53104751207542
+    },
+    {
+      "ID": 77,
+      "direction": 116.88960600272195,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 201.00703589269304,
+      "y_position": 407.1787449285423
+    },
+    {
+      "ID": 78,
+      "direction": 98.874927942956575,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 174.02967148456625,
+      "y_position": 384.3530527024941
+    },
+    {
+      "ID": 79,
+      "direction": 110.6209754964903,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 256.54575648772988,
+      "y_position": 276.479272459284
+    },
+    {
+      "ID": 80,
+      "direction": 98.940378138322828,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 255.02544528377319,
+      "y_position": 182.34931407314463
+    },
+    {
+      "ID": 81,
+      "direction": 101.8659819167106,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 132.62034498391327,
+      "y_position": 242.45180887856432
+    },
+    {
+      "ID": 82,
+      "direction": 91.556193106454941,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 391.69504488187334,
+      "y_position": -101.8056666517631
+    },
+    {
+      "ID": 83,
+      "direction": 117.86117256710109,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 37.008937351941199,
+      "y_position": -115.51938506144317
+    },
+    {
+      "ID": 84,
+      "direction": 109.30034646812547,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 479.25431308102418,
+      "y_position": 94.120022207493662
+    },
+    {
+      "ID": 85,
+      "direction": 77.889560330832552,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.98740516044711,
+      "y_position": -2685.4197281341212
+    },
+    {
+      "ID": 86,
+      "direction": 97.264866326534317,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.13701366950954,
+      "y_position": -2642.3219322232021
+    },
+    {
+      "ID": 87,
+      "direction": 92.655750181244372,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 195.5773971421593,
+      "y_position": 3.4837145512192009
+    },
+    {
+      "ID": 88,
+      "direction": 120.69078435144927,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": -83.471194358882613,
+      "y_position": 80.1725925447262
+    },
+    {
+      "ID": 89,
+      "direction": 107.80009398640813,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 338.12017640392696,
+      "y_position": 122.70072944260022
+    },
+    {
+      "ID": 90,
+      "direction": 109.66686635770444,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.66037139015839,
+      "y_position": -2947.7567822943338
+    },
+    {
+      "ID": 91,
+      "direction": 108.14915976704764,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 277.79981802508604,
+      "y_position": 153.24929433731154
+    },
+    {
+      "ID": 92,
+      "direction": 104.07891317715246,
+      "state": {
+        "Opinion": 1,
+        "Seuil": 60
+      },
+      "x_position": 332.11002005252999,
+      "y_position": 261.47629661039343
+    },
+    {
+      "ID": 93,
+      "direction": 58.73314941438386,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.13810105678442,
+      "y_position": -3304.0151684800867
+    },
+    {
+      "ID": 94,
+      "direction": 71.367859041730469,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 800.80937434899647,
+      "y_position": -2522.9426496285578
+    },
+    {
+      "ID": 95,
+      "direction": 115.36099549072759,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 799.86426779971453,
+      "y_position": -3074.1086972784833
+    },
+    {
+      "ID": 96,
+      "direction": 88.913481574175975,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 167.00353887971863,
+      "y_position": 243.18778796796565
+    },
+    {
+      "ID": 97,
+      "direction": 95.308648981158143,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 256.28499954114017,
+      "y_position": 363.45195618030675
+    },
+    {
+      "ID": 98,
+      "direction": 117.35939505013569,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 773.48942735606261,
+      "y_position": -899.06020843057968
+    },
+    {
+      "ID": 99,
+      "direction": 77.137618989545871,
+      "state": {
+        "Opinion": 2,
+        "Seuil": 60
+      },
+      "x_position": 501.51028485853203,
+      "y_position": 226.12824836869424
+    }
+  ],
+  "ticks": 94008
+}
