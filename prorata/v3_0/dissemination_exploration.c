@@ -2,9 +2,6 @@
 #include "dissemination_exploration.h"
 #include <math.h>
 
-#include <stdlib.h>
-#include <stdio.h>
-
 REGISTER_USERDATA(USERDATA)
 
 // declare constants
@@ -13,15 +10,12 @@ static const uint8_t STEP_TIME = 10;
 static const uint32_t TICKS_TO_SUCCESS = 300;
 
 static const uint8_t consensus_atteint = 100; // nombre de kilobots
-static const uint8_t NBRE_OPTIONS = 4;
+static const uint8_t NBRE_OPTIONS = 3;
 static const uint8_t quality_of_site_a = 1;
 static const uint8_t quality_of_site_b = 2;
 static const uint8_t quality_of_site_c = 3;
-static const uint8_t quality_of_site_d = 4;
-static const uint8_t nbre_initial_agents_tetus = 16; //12 = 3 têtus ; 16 = 4 têtus
+static const uint8_t nbre_initial_agents_tetus = 0; //12
 static const uint8_t seuil_changements_opinions = 7;
-static const uint8_t poids_changements_opinions = 0;
-static const uint8_t iteration_critique_changements_opinions = 0;
 static const uint32_t dissemination_time = 15624; // en kiloticks
 static const uint32_t exploration_time = 11294; // en kiloticks
 static const uint32_t taille_nest = 230;
@@ -40,7 +34,6 @@ exploration_time = 310;
 uint8_t consensus_site_a = nbre_initial_agents_tetus / NBRE_OPTIONS;
 uint8_t consensus_site_b = nbre_initial_agents_tetus / NBRE_OPTIONS;
 uint8_t consensus_site_c = nbre_initial_agents_tetus / NBRE_OPTIONS;
-uint8_t consensus_site_d = nbre_initial_agents_tetus / NBRE_OPTIONS;
 uint8_t consensus_courant = nbre_initial_agents_tetus;
 
 /* Helper function for setting motor speed smoothly
@@ -136,7 +129,6 @@ void explore() {
       if(mydata->flag_speaker == 1) set_color(RGB(2,0,0));
       else if(mydata->flag_speaker == 2) set_color(RGB(0,2,0));
       else if(mydata->flag_speaker == 3) set_color(RGB(0,0,2));
-      else if(mydata->flag_speaker == 4) set_color(RGB(2,2,2));
       else printf("ERREUR EXPLORE \n");
     }
   }
@@ -158,19 +150,16 @@ void affichage_resultats() {
   consensus_courant ++;
   if (consensus_courant == consensus_atteint) {
     printf("######################### CONSENSUS ATTEINT ######################### \n");
-    double quality_total = (double)quality_of_site_a + (double)quality_of_site_b + (double)quality_of_site_c + (double)quality_of_site_d;
+    double quality_total = (double)quality_of_site_a + (double)quality_of_site_b + (double)quality_of_site_c;
     double nbre_theorique_a = (double)consensus_atteint * ((double)quality_of_site_a / quality_total);
     double nbre_theorique_b = (double)consensus_atteint * ((double)quality_of_site_b / quality_total);
     double nbre_theorique_c = (double)consensus_atteint * ((double)quality_of_site_c / quality_total);
-    double nbre_theorique_d = (double)consensus_atteint * ((double)quality_of_site_d / quality_total);
     printf("Nombre d'agents théorique pour le site a : %f \n", nbre_theorique_a);
     printf("Nombre d'agents théorique pour le site b : %f \n", nbre_theorique_b);
     printf("Nombre d'agents théorique pour le site c : %f \n", nbre_theorique_c);
-    printf("Nombre d'agents théorique pour le site d : %f \n", nbre_theorique_d);
     printf("Nombre d'agents réel pour le site a : %f \n", (double)consensus_site_a);
     printf("Nombre d'agents réel pour le site b : %f \n", (double)consensus_site_b);
     printf("Nombre d'agents réel pour le site c : %f \n", (double)consensus_site_c);
-    printf("Nombre d'agents réel pour le site d : %f \n", (double)consensus_site_d);
     uint32_t min = 0;
     printf("Kiloticks du consensus : %d \n", kilo_ticks);
     min = kilo_ticks / 31 / 60;
@@ -182,11 +171,9 @@ void affichage_resultats() {
       fprintf(fichier, "nbre_theorique_a\n%f\n", nbre_theorique_a);
       fprintf(fichier, "nbre_theorique_b\n%f\n", nbre_theorique_b);
       fprintf(fichier, "nbre_theorique_c\n%f\n", nbre_theorique_c);
-      fprintf(fichier, "nbre_theorique_d\n%f\n", nbre_theorique_d);
       fprintf(fichier, "nbre_experimental_a\n%f\n", (double)consensus_site_a);
       fprintf(fichier, "nbre_experimental_b\n%f\n", (double)consensus_site_b);
       fprintf(fichier, "nbre_experimental_c\n%f\n", (double)consensus_site_c);
-      fprintf(fichier, "nbre_experimental_d\n%f\n", (double)consensus_site_d);
       fprintf(fichier, "Kiloticks du consensus\n%d\n", kilo_ticks);
       fprintf(fichier, "Temps en min du consensus\n%d\n", min);
       fclose(fichier);
@@ -200,7 +187,6 @@ void affichage_debugage_0() {
   printf("changements_opinions_a = %d \n", mydata->changements_opinions_a);
   printf("changements_opinions_b = %d \n", mydata->changements_opinions_b);
   printf("changements_opinions_c = %d \n", mydata->changements_opinions_c);
-  printf("changements_opinions_d = %d \n", mydata->changements_opinions_d);
   mydata->flag_bug = 1;
 }
 
@@ -210,27 +196,16 @@ void affichage_debugage_1() {
   }
 }
 
-void analyse_iteration_ideale() {
-  double quality_total = (double)quality_of_site_a + (double)quality_of_site_b + (double)quality_of_site_c + (double)quality_of_site_d;
-  if (mydata->flag_speaker == 1 && (double)consensus_atteint * ((double)quality_of_site_a / quality_total) == (double)consensus_site_a) printf("Kilo_uid : %d : Nombre idéale d'itérations du site %d : %d => %d \n",kilo_uid,mydata->flag_speaker,mydata->changements_opinions,consensus_site_a);
-  else if (mydata->flag_speaker == 2 && (double)consensus_atteint * ((double)quality_of_site_b / quality_total) == (double)consensus_site_b) printf("Kilo_uid : %d : Nombre idéale d'itérations du site %d : %d => %d \n",kilo_uid,mydata->flag_speaker,mydata->changements_opinions,consensus_site_b);
-  else if (mydata->flag_speaker == 3 && (double)consensus_atteint * ((double)quality_of_site_c / quality_total) == (double)consensus_site_c) printf("Kilo_uid : %d : Nombre idéale d'itérations du site %d : %d => %d \n",kilo_uid,mydata->flag_speaker,mydata->changements_opinions,consensus_site_c);
-  else if (mydata->flag_speaker == 4 && (double)consensus_atteint * ((double)quality_of_site_d / quality_total) == (double)consensus_site_d) printf("Kilo_uid : %d : Nombre idéale d'itérations du site %d : %d => %d \n",kilo_uid,mydata->flag_speaker,mydata->changements_opinions,consensus_site_d);
-  //else printf("ERREUR ANALYSE_ITERATION_IDEALE\n");
-}
-
 void transition_tetu_a() {
   mydata->tetu = 1;
   mydata->opinion_a = 1;
   mydata->opinion_b = 0;
   mydata->opinion_c = 0;
-  mydata->opinion_d = 0;
   mydata->flag_speaker = 1;
   mydata->quality_of_site = quality_of_site_a;
   set_color(RGB(1,0,0));
   consensus_site_a ++;
   affichage_resultats();
-  //analyse_iteration_ideale();
 }
 
 void transition_tetu_b() {
@@ -238,13 +213,11 @@ void transition_tetu_b() {
   mydata->opinion_a = 0;
   mydata->opinion_b = 1;
   mydata->opinion_c = 0;
-  mydata->opinion_d = 0;
   mydata->flag_speaker = 2;
   mydata->quality_of_site = quality_of_site_b;
   set_color(RGB(0,1,0));
   consensus_site_b ++;
   affichage_resultats();
-  //analyse_iteration_ideale();
 }
 
 void transition_tetu_c() {
@@ -252,140 +225,51 @@ void transition_tetu_c() {
   mydata->opinion_a = 0;
   mydata->opinion_b = 0;
   mydata->opinion_c = 1;
-  mydata->opinion_d = 0;
   mydata->flag_speaker = 3;
   mydata->quality_of_site = quality_of_site_c;
   set_color(RGB(0,0,1));
   consensus_site_c ++;
   affichage_resultats();
-  //analyse_iteration_ideale();
-}
-
-void transition_tetu_d() {
-  mydata->tetu = 1;
-  mydata->opinion_a = 0;
-  mydata->opinion_b = 0;
-  mydata->opinion_c = 0;
-  mydata->opinion_d = 1;
-  mydata->flag_speaker = 4;
-  mydata->quality_of_site = quality_of_site_d;
-  set_color(RGB(1,1,1));
-  consensus_site_d ++;
-  affichage_resultats();
-  //analyse_iteration_ideale();
 }
 
 void transition_tetu() {
   if (mydata->changements_opinions == mydata->seuil_changements_opinions) {
     //affichage_debugage_0();
-
-    /* ################################################ TROIS EGALITES ################################################ */
-    if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_b == mydata->changements_opinions_c
-      && mydata->changements_opinions_c == mydata->changements_opinions_d) {
+    if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_b == mydata->changements_opinions_c) {
       uint8_t temp = rand() % NBRE_OPTIONS;
       if(temp == 0) mydata->changements_opinions_a ++;
       else if(temp == 1) mydata->changements_opinions_b ++;
       else if(temp == 2) mydata->changements_opinions_c ++;
-      else if(temp == 3) mydata->changements_opinions_d ++;
       else printf("ERREUR TRANSITION_TETU 1 \n");
     }
-
-    /* ################################################ UNE EGALITE ################################################ */
-    else if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_a > mydata->changements_opinions_c
-      && mydata->changements_opinions_a > mydata->changements_opinions_d) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
+    else if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_a > mydata->changements_opinions_c) {
+      uint8_t temp = rand() % (NBRE_OPTIONS-1);
       if(temp == 0) mydata->changements_opinions_a ++;
       else if(temp == 1) mydata->changements_opinions_b ++;
       else printf("ERREUR TRANSITION_TETU 2 \n");
     }
-    else if (mydata->changements_opinions_b == mydata->changements_opinions_c && mydata->changements_opinions_b > mydata->changements_opinions_a
-      && mydata->changements_opinions_b > mydata->changements_opinions_d) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
+    else if (mydata->changements_opinions_b == mydata->changements_opinions_c && mydata->changements_opinions_b > mydata->changements_opinions_a) {
+      uint8_t temp = rand() % (NBRE_OPTIONS-1);
       if(temp == 0) mydata->changements_opinions_b ++;
       else if(temp == 1) mydata->changements_opinions_c ++;
       else printf("ERREUR TRANSITION_TETU 3 \n");
     }
-    else if (mydata->changements_opinions_a == mydata->changements_opinions_c && mydata->changements_opinions_a > mydata->changements_opinions_b
-      && mydata->changements_opinions_a > mydata->changements_opinions_d) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
+    else if (mydata->changements_opinions_a == mydata->changements_opinions_c && mydata->changements_opinions_a > mydata->changements_opinions_b) {
+      uint8_t temp = rand() % (NBRE_OPTIONS-1);
       if(temp == 0) mydata->changements_opinions_a ++;
       else if(temp == 1) mydata->changements_opinions_c ++;
       else printf("ERREUR TRANSITION_TETU 4 \n");
     }
-    else if (mydata->changements_opinions_d == mydata->changements_opinions_a && mydata->changements_opinions_d > mydata->changements_opinions_b
-      && mydata->changements_opinions_d > mydata->changements_opinions_c) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
-      if(temp == 0) mydata->changements_opinions_d ++;
-      else if(temp == 1) mydata->changements_opinions_a ++;
-      else printf("ERREUR TRANSITION_TETU 5 \n");
-    }
-    else if (mydata->changements_opinions_d == mydata->changements_opinions_b && mydata->changements_opinions_d > mydata->changements_opinions_a
-      && mydata->changements_opinions_d > mydata->changements_opinions_c) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
-      if(temp == 0) mydata->changements_opinions_d ++;
-      else if(temp == 1) mydata->changements_opinions_b ++;
-      else printf("ERREUR TRANSITION_TETU 6 \n");
-    }
-    else if (mydata->changements_opinions_d == mydata->changements_opinions_c && mydata->changements_opinions_d > mydata->changements_opinions_a
-      && mydata->changements_opinions_d > mydata->changements_opinions_b) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-2);
-      if(temp == 0) mydata->changements_opinions_d ++;
-      else if(temp == 1) mydata->changements_opinions_c ++;
-      else printf("ERREUR TRANSITION_TETU 7 \n");
-    }
-
-    /* ################################################ DEUX EGALITES ################################################ */
-    else if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_a == mydata->changements_opinions_c
-      && mydata->changements_opinions_a > mydata->changements_opinions_d) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-1);
-      if(temp == 0) mydata->changements_opinions_a ++;
-      else if(temp == 1) mydata->changements_opinions_b ++;
-      else if(temp == 2) mydata->changements_opinions_c ++;
-      else printf("ERREUR TRANSITION_TETU 8 \n");
-    }
-    else if (mydata->changements_opinions_a == mydata->changements_opinions_b && mydata->changements_opinions_a == mydata->changements_opinions_d
-      && mydata->changements_opinions_a > mydata->changements_opinions_c) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-1);
-      if(temp == 0) mydata->changements_opinions_a ++;
-      else if(temp == 1) mydata->changements_opinions_b ++;
-      else if(temp == 2) mydata->changements_opinions_d ++;
-      else printf("ERREUR TRANSITION_TETU 9 \n");
-    }
-    else if (mydata->changements_opinions_a == mydata->changements_opinions_c && mydata->changements_opinions_a == mydata->changements_opinions_d
-      && mydata->changements_opinions_a > mydata->changements_opinions_b) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-1);
-      if(temp == 0) mydata->changements_opinions_a ++;
-      else if(temp == 1) mydata->changements_opinions_c ++;
-      else if(temp == 2) mydata->changements_opinions_d ++;
-      else printf("ERREUR TRANSITION_TETU 10 \n");
-    }
-    else if (mydata->changements_opinions_b == mydata->changements_opinions_c && mydata->changements_opinions_b == mydata->changements_opinions_d
-      && mydata->changements_opinions_b > mydata->changements_opinions_a) {
-      uint8_t temp = rand() % (NBRE_OPTIONS-1);
-      if(temp == 0) mydata->changements_opinions_b ++;
-      else if(temp == 1) mydata->changements_opinions_c ++;
-      else if(temp == 2) mydata->changements_opinions_d ++;
-      else printf("ERREUR TRANSITION_TETU 11 \n");
-    }
-
-    /* ################################################ ON DEPARTAGE ################################################ */
-    if (mydata->changements_opinions_a > mydata->changements_opinions_b && mydata->changements_opinions_a > mydata->changements_opinions_c
-      && mydata->changements_opinions_a > mydata->changements_opinions_d) {
+    if (mydata->changements_opinions_a > mydata->changements_opinions_b && mydata->changements_opinions_a > mydata->changements_opinions_c) {
       transition_tetu_a();
     }
-    else if (mydata->changements_opinions_b > mydata->changements_opinions_a && mydata->changements_opinions_b > mydata->changements_opinions_c
-      && mydata->changements_opinions_b > mydata->changements_opinions_d) {
+    else if (mydata->changements_opinions_b > mydata->changements_opinions_a && mydata->changements_opinions_b > mydata->changements_opinions_c) {
       transition_tetu_b();
     }
-    else if (mydata->changements_opinions_c > mydata->changements_opinions_a && mydata->changements_opinions_c > mydata->changements_opinions_b
-      && mydata->changements_opinions_c > mydata->changements_opinions_d) {
+    else if (mydata->changements_opinions_c > mydata->changements_opinions_a && mydata->changements_opinions_c > mydata->changements_opinions_b) {
       transition_tetu_c();
     }
-    else if (mydata->changements_opinions_d > mydata->changements_opinions_a && mydata->changements_opinions_d > mydata->changements_opinions_b
-      && mydata->changements_opinions_d > mydata->changements_opinions_c) {
-      transition_tetu_d();
-    }
-    else printf("ERREUR TRANSITION_TETU 12 \n");
+    else printf("ERREUR TRANSITION_TETU 5 \n");
     //affichage_debugage_1();
   }
 }
@@ -395,15 +279,12 @@ void set_opinion_a() {
     mydata->opinion_a = 1;
     mydata->opinion_b = 0;
     mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 1;
     mydata->quality_of_site = quality_of_site_a;
     set_color(RGB(2,0,0));
     mydata->changements_opinions_a ++;
     mydata->changements_opinions ++;
-    if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_a += poids_changements_opinions;
     transition_tetu();
-    //if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_a += poids_changements_opinions;
   }
 }
 
@@ -412,15 +293,12 @@ void set_opinion_b() {
     mydata->opinion_a = 0;
     mydata->opinion_b = 1;
     mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 2;
     mydata->quality_of_site = quality_of_site_b;
     set_color(RGB(0,2,0));
     mydata->changements_opinions_b ++;
     mydata->changements_opinions ++;
-    if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_b += poids_changements_opinions;
     transition_tetu();
-    //if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_b += poids_changements_opinions;
   }
 }
 
@@ -429,32 +307,12 @@ void set_opinion_c() {
     mydata->opinion_a = 0;
     mydata->opinion_b = 0;
     mydata->opinion_c = 1;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 3;
     mydata->quality_of_site = quality_of_site_c;
     set_color(RGB(0,0,2));
     mydata->changements_opinions_c ++;
     mydata->changements_opinions ++;
-    if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_c += poids_changements_opinions;
     transition_tetu();
-    //if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_c += poids_changements_opinions;
-  }
-}
-
-void set_opinion_d() {
-  if (!mydata->tetu) {
-    mydata->opinion_a = 0;
-    mydata->opinion_b = 0;
-    mydata->opinion_c = 0;
-    mydata->opinion_d = 1;
-    mydata->flag_speaker = 4;
-    mydata->quality_of_site = quality_of_site_d;
-    set_color(RGB(2,2,2));
-    mydata->changements_opinions_d ++;
-    mydata->changements_opinions ++;
-    if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_d += poids_changements_opinions;
-    transition_tetu();
-    //if (mydata->changements_opinions == iteration_critique_changements_opinions) mydata->changements_opinions_d += poids_changements_opinions;
   }
 }
 
@@ -486,18 +344,15 @@ void voter_model() {
         double proba_a;
         double proba_b;
         double proba_c;
-        double proba_d;
         double tirage;
-        total = mydata->opinion_a + mydata->opinion_b + mydata->opinion_c + mydata->opinion_d;
+        total = mydata->opinion_a + mydata->opinion_b + mydata->opinion_c;
         proba_a = mydata->opinion_a / total;
         proba_b = mydata->opinion_b / total;
         proba_c = mydata->opinion_c / total;
-        proba_d = mydata->opinion_d / total;
         tirage = frand_a_b(0.0,1.0);
         if (tirage <= proba_a) set_opinion_a();
         else if (tirage <= proba_a + proba_b) set_opinion_b();
         else if (tirage <= proba_a + proba_b + proba_c) set_opinion_c();
-        else if (tirage <= proba_a + proba_b + proba_c + proba_d) set_opinion_d();
         else printf("ERREUR VOTER_MODEL 1 \n"); // peut-être souci de nest trop petit qui provoque des NaN
         vider_tableau_uid();
       }
@@ -507,7 +362,6 @@ void voter_model() {
         if (mydata->flag_speaker == 1) mydata->quality_of_site = quality_of_site_a;
         else if (mydata->flag_speaker == 2) mydata->quality_of_site = quality_of_site_b;
         else if (mydata->flag_speaker == 3) mydata->quality_of_site = quality_of_site_c;
-        else if (mydata->flag_speaker == 4) mydata->quality_of_site = quality_of_site_d;
         else printf("ERREUR VOTER_MODEL 2 \n");
       }
     }
@@ -545,20 +399,16 @@ void loop() {
       //nest();
       if(mydata->flag_nest && mydata->tetu == 0) {     
         if (mydata->flag_listener == 1 && !mydata->flag_voisin_deja_rencontre) {
-          mydata->opinion_a ++;
-          mydata->cpt_voisins ++;
-        }            
+            mydata->opinion_a ++;
+            mydata->cpt_voisins ++;
+          }            
         else if (mydata->flag_listener == 2 && !mydata->flag_voisin_deja_rencontre) {
-          mydata->opinion_b ++;
-          mydata->cpt_voisins ++;
+            mydata->opinion_b ++;
+            mydata->cpt_voisins ++;
         }
         else if (mydata->flag_listener == 3 && !mydata->flag_voisin_deja_rencontre) {
-          mydata->opinion_c ++;
-          mydata->cpt_voisins ++;
-        }
-        else if (mydata->flag_listener == 4 && !mydata->flag_voisin_deja_rencontre) {
-          mydata->opinion_d ++;
-          mydata->cpt_voisins ++;
+            mydata->opinion_c ++;
+            mydata->cpt_voisins ++;
         }
         //else // rencontre un voisin en exploration, donc ne compte pas
       }  
@@ -599,11 +449,6 @@ void setup_message(void) {
   mydata->message_c.data[1] = kilo_uid;
   mydata->message_c.crc = message_crc(&mydata->message_c);
 
-  mydata->message_d.type = NORMAL;
-  mydata->message_d.data[0] = 4;
-  mydata->message_d.data[1] = kilo_uid;
-  mydata->message_d.crc = message_crc(&mydata->message_d);
-
   mydata->message_exploration.type = NORMAL;
 	mydata->message_exploration.data[0] = 0;
   mydata->message_exploration.data[1] = kilo_uid;
@@ -622,7 +467,6 @@ message_t *message_tx() { // speaker pour envoyer son opinion
   	if (mydata->flag_speaker == 1) return &mydata->message_a;
   	else if (mydata->flag_speaker == 2) return &mydata->message_b;
     else if (mydata->flag_speaker == 3) return &mydata->message_c;
-    else if (mydata->flag_speaker == 4) return &mydata->message_d;
     else printf("ERREUR MESSAGE_TX 1 \n");
   }
   else if(mydata->state == EXPLORATION) {
@@ -704,7 +548,6 @@ void setup() {// initialisation au tout début, une seule fois
     mydata->opinion_a = 0;
     mydata->opinion_b = 0;
     mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 1;
   }
   else if (kilo_uid % NBRE_OPTIONS == 1) {
@@ -713,7 +556,6 @@ void setup() {// initialisation au tout début, une seule fois
     mydata->opinion_a = 0;
     mydata->opinion_b = 0;
     mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 2;
   }
   else if (kilo_uid % NBRE_OPTIONS == 2) {
@@ -722,17 +564,7 @@ void setup() {// initialisation au tout début, une seule fois
     mydata->opinion_a = 0;
     mydata->opinion_b = 0;
     mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
     mydata->flag_speaker = 3;
-  }
-  else if (kilo_uid % NBRE_OPTIONS == 3) {
-    /* OPINION D */
-    set_color(RGB(3,3,3));
-    mydata->opinion_a = 0;
-    mydata->opinion_b = 0;
-    mydata->opinion_c = 0;
-    mydata->opinion_d = 0;
-    mydata->flag_speaker = 4;
   }
   else printf("ERREUR SETUP VOTER_MODEL\n");
 
@@ -744,7 +576,6 @@ void setup() {// initialisation au tout début, une seule fois
   mydata->changements_opinions_a = 0;
   mydata->changements_opinions_b = 0;
   mydata->changements_opinions_c = 0;
-  mydata->changements_opinions_d = 0;
   mydata->tetu = 0;
 
   /* AGENTS TETUS DEPUIS LE DEBUT */
@@ -754,7 +585,6 @@ void setup() {// initialisation au tout début, une seule fois
       mydata->opinion_a = 1;
       mydata->opinion_b = 0;
       mydata->opinion_c = 0;
-      mydata->opinion_d = 0;
       mydata->flag_speaker = 1;
       set_color(RGB(1,0,0));
     }
@@ -763,7 +593,6 @@ void setup() {// initialisation au tout début, une seule fois
       mydata->opinion_a = 0;
       mydata->opinion_b = 1;
       mydata->opinion_c = 0;
-      mydata->opinion_d = 0;
       mydata->flag_speaker = 2;
       set_color(RGB(0,1,0));
     }
@@ -772,18 +601,8 @@ void setup() {// initialisation au tout début, une seule fois
       mydata->opinion_a = 0;
       mydata->opinion_b = 0;
       mydata->opinion_c = 1;
-      mydata->opinion_d = 0;
       mydata->flag_speaker = 3;
       set_color(RGB(0,0,1));
-    }
-    else if (kilo_uid % NBRE_OPTIONS == 3) {
-      mydata->tetu = 1;
-      mydata->opinion_a = 0;
-      mydata->opinion_b = 0;
-      mydata->opinion_c = 0;
-      mydata->opinion_d = 1;
-      mydata->flag_speaker = 4;
-      set_color(RGB(1,1,1));
     }
   }
   mydata->flag_bug = 0;
@@ -803,26 +622,22 @@ char *cb_botinfo(void) {
   double proba_a;
   double proba_b;
   double proba_c;
-  double proba_d;
-  total = mydata->opinion_a + mydata->opinion_b + mydata->opinion_c + mydata->opinion_d;
+  total = mydata->opinion_a + mydata->opinion_b + mydata->opinion_c;
   proba_a = mydata->opinion_a / total;
   proba_b = mydata->opinion_b / total;
   proba_c = mydata->opinion_c / total;
-  proba_d = mydata->opinion_d / total;
   
   if (mydata->state == DISSEMINATION) {
     if (!mydata->tetu) {
       p += sprintf (p, "Opinion a: %f ", proba_a);
       p += sprintf (p, "Opinion b: %f ", proba_b);
-      p += sprintf (p, "Opinion c: %f ", proba_c);
-    	p += sprintf (p, "Opinion d: %f \n", proba_d);
+    	p += sprintf (p, "Opinion c: %f \n", proba_c);
       p += sprintf (p, "cpt voisins : %d \n", mydata->cpt_voisins);
       p += sprintf (p, "Changements d'opinions : ");
       p += sprintf (p, "au total : %d, ", mydata->changements_opinions);
       p += sprintf (p, "en a : %d, ", mydata->changements_opinions_a);
       p += sprintf (p, "en b : %d, ", mydata->changements_opinions_b);
-      p += sprintf (p, "en c : %d, ", mydata->changements_opinions_c);
-      p += sprintf (p, "en d : %d. \n", mydata->changements_opinions_d);
+      p += sprintf (p, "en c : %d. \n", mydata->changements_opinions_c);
     }
     else {
       p += sprintf (p, "Opinion : %d \n", mydata->flag_speaker);
@@ -830,8 +645,7 @@ char *cb_botinfo(void) {
       p += sprintf (p, "au total : %d, ", mydata->changements_opinions);
       p += sprintf (p, "en a : %d, ", mydata->changements_opinions_a);
       p += sprintf (p, "en b : %d, ", mydata->changements_opinions_b);
-      p += sprintf (p, "en c : %d, ", mydata->changements_opinions_c);
-      p += sprintf (p, "en d : %d. \n", mydata->changements_opinions_d);
+      p += sprintf (p, "en c : %d. \n", mydata->changements_opinions_c);
     }
   }
   else if (mydata->state == EXPLORATION) {
@@ -840,8 +654,7 @@ char *cb_botinfo(void) {
     p += sprintf (p, "au total : %d, ", mydata->changements_opinions);
     p += sprintf (p, "en a : %d, ", mydata->changements_opinions_a);
     p += sprintf (p, "en b : %d, ", mydata->changements_opinions_b);
-    p += sprintf (p, "en c : %d, ", mydata->changements_opinions_c);
-    p += sprintf (p, "en d : %d. \n", mydata->changements_opinions_d);
+    p += sprintf (p, "en c : %d. \n", mydata->changements_opinions_c);
   }
   else printf("ERREUR CB_BOTINFO \n");
   
@@ -900,17 +713,8 @@ int16_t cb_lighting(double x, double y) {
       double dist_c = sqrt(dist_x + dist_y);
       return (int16_t)dist_c;
     }
-    else if (mydata->flag_speaker == 4) { // aller vers le site d
-      double light_x = -600.0;
-      double light_y = -500.0;
-      double dist_x = pow(light_x + x, 2);
-      double dist_y = pow(light_y + y, 2);
-      double dist_c = sqrt(dist_x + dist_y);
-      return (int16_t)dist_c;
-    }
-    else printf("ERREUR CB_LIGHTING 1 \n");
   }
-  else printf("ERREUR CB_LIGHTING 2 \n");
+  else printf("ERREUR CB_LIGHTING \n");
   return 0;
 }
 
