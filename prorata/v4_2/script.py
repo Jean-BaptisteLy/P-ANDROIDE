@@ -20,7 +20,8 @@ for i in range(nbre_runs):
 	experimental_c = False
 	experimental_d = False
 
-	with open("./resultats.txt","r") as file:
+
+	with open("./resultats_bruts.txt","r") as file:
 		for line in file:
 			if (line=="nbre_theorique_a\n"):
 				theorique_a = True
