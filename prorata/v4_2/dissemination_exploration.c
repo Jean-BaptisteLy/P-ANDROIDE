@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#define nombre_intervalle_temps_min 15
+#define nombre_intervalle_temps_min 17 // 15
 
 REGISTER_USERDATA(USERDATA)
 
@@ -21,7 +21,7 @@ static const uint8_t quality_of_site_b = 2;
 static const uint8_t quality_of_site_c = 3;
 static const uint8_t quality_of_site_d = 4;
 static const uint8_t nbre_initial_agents_tetus = 16; //12 = 3 têtus ; 16 = 4 têtus
-static const uint8_t seuil_changements_opinions = 7;
+static const uint8_t seuil_changements_opinions = 6;
 static const uint8_t poids_changements_opinions = 0;
 static const uint8_t iteration_critique_changements_opinions = 0;
 static const uint32_t dissemination_time = 15624; // en kiloticks
@@ -31,9 +31,6 @@ static const uint32_t taille_nest = 230;
 // informations pour tracer les courbes
 static const uint8_t intervalle_temps_min = 10;
 static const uint32_t intervalle_temps_kiloticks = intervalle_temps_min * 1860;
-//static const uint32_t intervalle_temps_kiloticks = 15500;
-//static const uint32_t kiloticks_max = nombre_intervalle_temps_min * 1860;
-//static const uint8_t taille_tableau_abscisses = nombre_intervalle_temps_min + 1;
 // 1860 kiloticks = 1 min
 
 /*
@@ -196,7 +193,7 @@ void affichage_resultats() {
     printf("Temps en min du consensus : %d \n", min);
 
     FILE* fichier = NULL;
-    fichier = fopen("resultats.txt","w");
+    fichier = fopen("resultats_bruts.txt","w");
     if (fichier != NULL) {
       fprintf(fichier, "nbre_theorique_a\n%f\n", nbre_theorique_a);
       fprintf(fichier, "nbre_theorique_b\n%f\n", nbre_theorique_b);
@@ -212,13 +209,13 @@ void affichage_resultats() {
     }
 
     printf("dernier_indice_temps = %d \n", dernier_indice_temps);
-
-    qualite_consensus_a[dernier_indice_temps] = (nbre_theorique_a - abs(nbre_theorique_a - tableau_nbre_agents[0])) / nbre_theorique_a;
-    qualite_consensus_b[dernier_indice_temps] = (nbre_theorique_b - abs(nbre_theorique_b - tableau_nbre_agents[1])) / nbre_theorique_b;
-    qualite_consensus_c[dernier_indice_temps] = (nbre_theorique_c - abs(nbre_theorique_c - tableau_nbre_agents[2])) / nbre_theorique_c;
-    qualite_consensus_d[dernier_indice_temps] = (nbre_theorique_d - abs(nbre_theorique_d - tableau_nbre_agents[3])) / nbre_theorique_d;
-    qualite_consensus_global[dernier_indice_temps] = (qualite_consensus_a[dernier_indice_temps] + qualite_consensus_b[dernier_indice_temps] + qualite_consensus_c[dernier_indice_temps] + qualite_consensus_d[dernier_indice_temps]) / NBRE_OPTIONS;
     
+    qualite_consensus_a[dernier_indice_temps] = fabs((nbre_theorique_a - abs(nbre_theorique_a - tableau_nbre_agents[0])) / nbre_theorique_a);
+    qualite_consensus_b[dernier_indice_temps] = fabs((nbre_theorique_b - abs(nbre_theorique_b - tableau_nbre_agents[1])) / nbre_theorique_b);
+    qualite_consensus_c[dernier_indice_temps] = fabs((nbre_theorique_c - abs(nbre_theorique_c - tableau_nbre_agents[2])) / nbre_theorique_c);
+    qualite_consensus_d[dernier_indice_temps] = fabs((nbre_theorique_d - abs(nbre_theorique_d - tableau_nbre_agents[3])) / nbre_theorique_d);
+    qualite_consensus_global[dernier_indice_temps] = (qualite_consensus_a[dernier_indice_temps] + qualite_consensus_b[dernier_indice_temps] + qualite_consensus_c[dernier_indice_temps] + qualite_consensus_d[dernier_indice_temps]) / NBRE_OPTIONS;
+
     printf("######################### QUALITES FINALES ######################### \n");
     printf("qualite_consensus_a = %f\n", qualite_consensus_a[dernier_indice_temps]);
     printf("qualite_consensus_b = %f\n", qualite_consensus_b[dernier_indice_temps]);
@@ -226,31 +223,60 @@ void affichage_resultats() {
     printf("qualite_consensus_d = %f\n", qualite_consensus_d[dernier_indice_temps]);
     printf("qualite_consensus_global = %f\n", qualite_consensus_global[dernier_indice_temps]);
 
-    uint8_t i;
-    for (i = 0; i < nombre_intervalle_temps_min+1; i++) {
-      if (i == 0) printf("Qualité consensus a : [%f, ", qualite_consensus_a[i]);
-      else if (i == nombre_intervalle_temps_min) printf("%f] \n", qualite_consensus_a[i]);
-      else printf("%f, ", qualite_consensus_a[i]);
-    }
-    for (i = 0; i < nombre_intervalle_temps_min+1; i++) {
-      if (i == 0) printf("Qualité consensus b : [%f, ", qualite_consensus_b[i]);
-      else if (i == nombre_intervalle_temps_min) printf("%f] \n", qualite_consensus_b[i]);
-      else printf("%f, ", qualite_consensus_b[i]);
-    }
-    for (i = 0; i < nombre_intervalle_temps_min+1; i++) {
-      if (i == 0) printf("Qualité consensus c : [%f, ", qualite_consensus_c[i]);
-      else if (i == nombre_intervalle_temps_min) printf("%f] \n", qualite_consensus_c[i]);
-      else printf("%f, ", qualite_consensus_c[i]);
-    }
-    for (i = 0; i < nombre_intervalle_temps_min+1; i++) {
-      if (i == 0) printf("Qualité consensus d : [%f, ", qualite_consensus_d[i]);
-      else if (i == nombre_intervalle_temps_min) printf("%f] \n", qualite_consensus_d[i]);
-      else printf("%f, ", qualite_consensus_d[i]);
-    }
-    for (i = 0; i < nombre_intervalle_temps_min+1; i++) {
-      if (i == 0) printf("Qualité consensus global : [%f, ", qualite_consensus_global[i]);
-      else if (i == nombre_intervalle_temps_min) printf("%f] \n", qualite_consensus_global[i]);
-      else printf("%f, ", qualite_consensus_global[i]);
+    FILE* fichier2 = NULL;
+    fichier2 = fopen("resultats_nets.txt","w");
+    if (fichier2 != NULL) {
+
+      uint8_t i;
+
+      fprintf(fichier2, "qualite_consensus_a\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_a[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_a[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_a[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_b\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_b[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_b[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_b[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_c\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_c[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_c[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_c[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_d\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_d[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_d[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_d[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_global\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min) fprintf(fichier2, "%f \n", qualite_consensus_global[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_global[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_global[i]);
+        }
+      }
+
+      fprintf(fichier2, "Kiloticks du consensus\n%d\n", kilo_ticks);
+      fprintf(fichier2, "Temps en min du consensus\n%d\n", min);
+      fclose(fichier2);
     }
     exit(0);
   }

@@ -33,7 +33,7 @@
     "finalImage" : null,
     "stateFileName" : "simstates.json",
     "stateFileSteps" : 0,
-    "GUI"  : 1,
+    "GUI"  : 0,
     "colorscheme" : "bright",
     "colorscheme" : "dark",
     "msgSuccessRate" : 1,
