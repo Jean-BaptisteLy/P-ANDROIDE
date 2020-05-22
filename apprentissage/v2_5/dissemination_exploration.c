@@ -19,7 +19,9 @@ static const uint8_t NBRE_OPTIONS = 2;
 static const uint8_t quality_of_site_a = 1;
 static const uint8_t quality_of_site_b = 2;
 
-static const uint32_t dissemination_time = 15624; // en kiloticks
+//static const uint32_t dissemination_time = 15624; // en kiloticks
+static const uint32_t mesure_qualite_time = 15624;
+static const uint32_t broadcast_time = 15624;
 static const uint32_t exploration_time = 11294; // en kiloticks
 static const uint32_t taille_nest = 230;
 
@@ -29,12 +31,12 @@ static const uint32_t taille_nest = 230;
 // 1860 kiloticks = 1 min
 
 // temps limite
-static const uint8_t temps_limite_min = 244;
+static const uint8_t temps_limite_min = 180;
 static const uint32_t temps_limite_kiloticks = temps_limite_min * 1860;
 
 // mEDEA
 static const uint8_t penalite_recompense = 5;
-static const double marge_erreur = 0.0;
+static const double marge_erreur = 0.1;
 
 /*
 dissemination_time = 15624; // 8,4 minutes
@@ -146,7 +148,7 @@ void set_behavior() {
 
 void explore() { 
   if (kilo_ticks > (mydata->last_time_update + mydata->exploration_time)) {
-    mydata->state = DISSEMINATION;
+    mydata->state = MESURE_QUALITE;
     mydata->last_time_update = kilo_ticks; // YES ATTENTION TRES IMPORTANT
     if(mydata->flag_speaker == 1) set_color(RGB(2,0,0));
     else if(mydata->flag_speaker == 2) set_color(RGB(0,2,0));
@@ -214,137 +216,6 @@ double frand_a_b(double a, double b) {
   return ( rand()/(double)RAND_MAX ) * (b-a) + a;
 }
 
-void mEDEA() {
-  uint32_t nb_ticks;
-  nb_ticks = mydata->dissemination_time;
-  if (kilo_ticks > (mydata->last_time_update + nb_ticks - 93)) { // during the last three seconds
-    if (kilo_ticks > (mydata->last_time_update + nb_ticks)) {
-      mydata->last_time_update = kilo_ticks;
-      //double total;
-      uint8_t proba_a;
-      uint8_t proba_b;
-      uint8_t tirage;
-      double opinion_a_courante;
-      double opinion_b_courante;
-      opinion_a_courante = (double)mydata->opinion_a / ((double)mydata->opinion_a + (double)mydata->opinion_b);
-      opinion_b_courante = (double)mydata->opinion_b / ((double)mydata->opinion_a + (double)mydata->opinion_b);
-
-      //printf("kilo_uid : %d ; (avant) mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
-      /*
-      // affiche genomeList
-      printf("%d \n",kilo_uid);
-      uint8_t i;
-      for(i=0;i<nbre_kilobots;i++) {
-        printf("mydata->genomeList[%d][0] : %d : mydata->genomeList[%d][1] : %d \n",i,mydata->genomeList[i][0],i,mydata->genomeList[i][1]);
-      }
-      */
-      if(kilo_uid == 0) {
-        printf("avant :\n");
-        printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
-        printf("kilo_uid : %d ; (avant) mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
-      }
-      //proba_a = genome_theorique[0]; // test
-      //proba_b = genome_theorique[0]; // test
-      uint8_t selection_operator = (int)(rand() / (double)RAND_MAX * (mydata->indice_genomeList - 1));
-      proba_a = mydata->genomeList[selection_operator][0];
-      proba_b = mydata->genomeList[selection_operator][1];
-      /*
-      printf("kilo_uid : %d ; selection_operator : %d ; mydata->indice_genomeList : %d ; mydata->cpt_voisins : %d \n", kilo_uid, selection_operator,mydata->indice_genomeList,mydata->cpt_voisins);
-      printf("mydata->genomeList[%d][0] : %d \n", selection_operator,mydata->genomeList[selection_operator][0]);
-      printf("mydata->genomeList[%d][1] : %d \n", selection_operator,mydata->genomeList[selection_operator][1]);
-      */
-
-      /*
-      printf("kilo_uid : %d \n",kilo_uid);
-      printf("mydata->indice_genomeList : %d ; mydata->cpt_voisins : %d \n", mydata->indice_genomeList, mydata->cpt_voisins);
-      printf("proba_a avant : %d \n", proba_a);
-      printf("proba_b avant : %d \n", proba_b);
-      printf("opinion_a_courante : %f ; genome_theorique[0] : %f \n", opinion_a_courante, genome_theorique[0]);
-      printf("opinion_b_courante : %f ; genome_theorique[1] : %f \n", opinion_b_courante, genome_theorique[1]);
-      */
-
-      if (opinion_a_courante > genome_theorique[0]+marge_erreur && opinion_b_courante < genome_theorique[1]-marge_erreur) {
-        //mydata->penalite_recompense = mydata->penalite_recompense * 
-        if (proba_a <= mydata->penalite_recompense) {
-          proba_a = 0;
-          proba_b = nbre_kilobots;
-        }
-        else {
-          proba_a -= mydata->penalite_recompense;
-          proba_b += mydata->penalite_recompense;
-        }
-        //mydata->penalite_recompense = mydata->penalite_recompense * 2;
-      }
-      else if (opinion_a_courante < genome_theorique[0]-marge_erreur && opinion_b_courante > genome_theorique[1]+marge_erreur) {
-        if (proba_b <= mydata->penalite_recompense) {
-          proba_a = nbre_kilobots;
-          proba_b = 0;
-        }
-        else {
-          proba_a += mydata->penalite_recompense;
-          proba_b -= mydata->penalite_recompense;
-        }
-        //mydata->penalite_recompense = mydata->penalite_recompense * 2;
-      }
-      else if (opinion_a_courante >= genome_theorique[0]-marge_erreur && opinion_a_courante <= genome_theorique[0]+marge_erreur && opinion_b_courante >= genome_theorique[1]-marge_erreur && opinion_b_courante <= genome_theorique[1]+marge_erreur) {
-        proba_a = proba_a;
-        proba_b = proba_b;
-        //mydata->penalite_recompense = mydata->penalite_recompense / 2;
-        //printf("%f \n", pow(2,-1/4));
-        //mydata->penalite_recompense = mydata->penalite_recompense * pow(2.0,-0.25);
-        //mydata->penalite_recompense = mydata->penalite_recompense - 6;
-        //printf("mydata->penalite_recompense : %d \n", mydata->penalite_recompense);
-        //exit(0);
-      }
-      else {
-        printf("ERREUR mEDEA 1\n");
-        printf("opinion_a_courante : %f ; genome_theorique[0]-marge_erreur : %f ; genome_theorique[0]+marge_erreur : %f \n", opinion_a_courante, genome_theorique[0]-marge_erreur, genome_theorique[0]+marge_erreur);
-        printf("opinion_b_courante : %f ; genome_theorique[1]-marge_erreur : %f ; genome_theorique[1]+marge_erreur : %f \n", opinion_b_courante, genome_theorique[1]-marge_erreur, genome_theorique[1]+marge_erreur);
-        exit(0);
-      }
-
-      //printf("mydata->penalite_recompense : %d \n", mydata->penalite_recompense);
-
-      /*
-      // si on dépasse les limites des bornes [0;nbre_kilobots]
-      if (proba_a < 0 || proba_b > nbre_kilobots) {
-        proba_a = 0;
-        proba_b = nbre_kilobots;
-      }
-      else if (proba_a > nbre_kilobots || proba_b < 0) {
-        proba_a = nbre_kilobots;
-        proba_b = 0;
-      }
-      */
-
-      tirage = (int)(rand() / (double)RAND_MAX * (nbre_kilobots - 1));
-      
-      //printf("tirage : %d \n",tirage);
-      /*
-      printf("proba_a après : %d \n", proba_a);
-      printf("proba_b après : %d \n", proba_b);
-      */
-
-      mydata->genome[0] = proba_a;
-      mydata->genome[1] = proba_b;
-      
-      if (tirage <= proba_a) set_opinion_a();
-      else if (tirage <= proba_a + proba_b) set_opinion_b();
-      else printf("ERREUR mEDEA 2 \n"); // peut-être souci de nest trop petit qui provoque des NaN
-      vider_tableau_uid();
-      //printf("kilo_uid : %d ; (apres) mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
-      //exit(0);
-      if(kilo_uid == 0) {
-        printf("tirage : %d \n",tirage);
-        printf("apres :\n");
-        printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
-        printf("kilo_uid : %d ; (apres) mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
-      }
-    }
-  }
-  //exit(0);
-}
-
 void collisions() { /* Gestion des collisions entre les kilobots */
   mydata->neighbor_distance = estimate_distance(&mydata->dist);
   if (mydata->neighbor_distance < TOOCLOSE_DISTANCE) {
@@ -361,6 +232,122 @@ void nest() {
     mydata->flag_nest = 1;
   }
   else mydata->flag_nest = 0;
+}
+
+void mesure_qualite() { // mesure la qualité, donne la pénalité/récompense, et modifie le génome courant
+  if (kilo_ticks > (mydata->last_time_update + mydata->broadcast_time)) {
+    mydata->last_time_update = kilo_ticks;
+    double opinion_a_courante;
+    double opinion_b_courante;
+    opinion_a_courante = (double)mydata->opinion_a / ((double)mydata->opinion_a + (double)mydata->opinion_b);
+    opinion_b_courante = (double)mydata->opinion_b / ((double)mydata->opinion_a + (double)mydata->opinion_b);
+    if(kilo_uid == 0) {
+      printf("opinion_a_courante : %f ; genome_theorique[0] : %f \n", opinion_a_courante, genome_theorique[0]);
+      printf("opinion_b_courante : %f ; genome_theorique[1] : %f \n", opinion_b_courante, genome_theorique[1]);
+      printf("avant :\n");
+      printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
+      printf("kilo_uid : %d ; mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
+    }
+    if (opinion_a_courante > genome_theorique[0]+marge_erreur && opinion_b_courante < genome_theorique[1]-marge_erreur) {
+      if(mydata->genome[0] <= mydata->penalite_recompense) {
+        mydata->genome[0] = 0;
+        mydata->genome[1] = nbre_kilobots;
+      }
+      else {
+        mydata->genome[0] -= mydata->penalite_recompense;
+        mydata->genome[1] += mydata->penalite_recompense;
+      }
+    }
+    else if (opinion_a_courante < genome_theorique[0]-marge_erreur && opinion_b_courante > genome_theorique[1]+marge_erreur) {
+      if(mydata->genome[1] <= mydata->penalite_recompense) {
+        mydata->genome[0] = nbre_kilobots;
+        mydata->genome[1] = 0;
+      }
+      else {
+        mydata->genome[0] += mydata->penalite_recompense;
+        mydata->genome[1] -= mydata->penalite_recompense;
+      }
+    }
+    //else if (opinion_a_courante >= genome_theorique[0]-marge_erreur && opinion_a_courante <= genome_theorique[0]+marge_erreur && opinion_b_courante >= genome_theorique[1]-marge_erreur && opinion_b_courante <= genome_theorique[1]+marge_erreur) {
+    else {
+      mydata->genome[0] = mydata->genome[0];
+      mydata->genome[1] = mydata->genome[1];
+      mydata->change_genome = 0;
+    }
+    /*
+    else {
+      printf("ERREUR MESURE_QUALITE 1\n");
+      printf("opinion_a_courante : %f ; genome_theorique[0]-marge_erreur : %f ; genome_theorique[0]+marge_erreur : %f \n", opinion_a_courante, genome_theorique[0]-marge_erreur, genome_theorique[0]+marge_erreur);
+      printf("opinion_b_courante : %f ; genome_theorique[1]-marge_erreur : %f ; genome_theorique[1]+marge_erreur : %f \n", opinion_b_courante, genome_theorique[1]-marge_erreur, genome_theorique[1]+marge_erreur);
+      exit(0);
+    }
+    */
+    vider_tableau_uid();
+    mydata->state = BROADCAST;
+    if(kilo_uid == 0) {
+      printf("apres :\n");
+      printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
+      printf("kilo_uid : %d ; mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
+    }
+  }
+}
+
+void choix_genome_mr() { // choisis le prochain génome aléatoirement et va à la ressource préférée majoritairement
+  if (kilo_ticks > (mydata->last_time_update + mydata->mesure_qualite_time)) {
+    mydata->last_time_update = kilo_ticks;
+    if(mydata->change_genome) {
+      uint8_t selection_operator = (int)(rand() / (double)RAND_MAX * (mydata->indice_genomeList - 1));
+      mydata->genome[0] = mydata->genomeList[selection_operator][0];
+      mydata->genome[1] = mydata->genomeList[selection_operator][1];
+    }
+    else mydata->change_genome = 1;
+
+    if(kilo_uid == 0) {
+      printf("nouveau genome :\n");
+      printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
+      printf("kilo_uid : %d ; mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
+    }
+    if(mydata->genome[0] > mydata->genome[1]) {
+      set_opinion_a();
+    }
+    else if(mydata->genome[0] < mydata->genome[1]) {
+      set_opinion_b();
+    }
+    else {
+      if(mydata->flag_speaker == 1) {
+        set_opinion_a();
+      }
+      else if (mydata->flag_speaker == 2) {
+        set_opinion_b();
+      }
+      else printf("ERREUR CHOIX_GENOME_MR 1\n");
+    }
+    vider_tableau_uid();
+  }
+}
+
+void choix_genome_vm() { // choisis le prochain génome aléatoirement et va à la ressource comme avec le voter model
+  if (kilo_ticks > (mydata->last_time_update + mydata->broadcast_time)) {
+    mydata->last_time_update = kilo_ticks;
+    if(mydata->change_genome) {
+      uint8_t selection_operator = (int)(rand() / (double)RAND_MAX * (mydata->indice_genomeList - 1));
+      mydata->genome[0] = mydata->genomeList[selection_operator][0];
+      mydata->genome[1] = mydata->genomeList[selection_operator][1];
+    }
+    else mydata->change_genome = 1;
+
+    if(kilo_uid == 0) {
+      printf("nouveau genome :\n");
+      printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
+      printf("kilo_uid : %d ; mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
+    }
+    uint8_t tirage;
+    tirage = (int)(rand() / (double)RAND_MAX * (nbre_kilobots - 1));
+    if(tirage <= mydata->genome[0]) set_opinion_a();
+    else if (tirage <= mydata->genome[0] + mydata->genome[1]) set_opinion_b();
+    else printf("ERREUR CHOIX_GENOME_VM 1\n"); // peut-être souci de nest trop petit qui provoque des NaN
+    vider_tableau_uid();
+  }
 }
 
 void loop() {
@@ -382,22 +369,19 @@ void loop() {
     printf("Temps en min du consensus : %d \n", min);
     exit(0);
   }
-  if(mydata->state == DISSEMINATION) {
+  if(mydata->state == MESURE_QUALITE) {
     nest();
     if (mydata->new_message) {
       mydata->new_message = 0; // On remet le flag à O
       collisions();
-      //nest();
       if(mydata->flag_nest) {     
         if (mydata->flag_listener == 1 && !mydata->flag_voisin_deja_rencontre) {
           mydata->opinion_a ++;
           mydata->cpt_voisins ++;
-          mydata->indice_genomeList ++;
         }            
         else if (mydata->flag_listener == 2 && !mydata->flag_voisin_deja_rencontre) {
           mydata->opinion_b ++;
           mydata->cpt_voisins ++;
-          mydata->indice_genomeList ++;
         }
         //else // rencontre un voisin en exploration, donc ne compte pas
       }  
@@ -405,7 +389,25 @@ void loop() {
     else { // si aucun message reçu en cas de DISSEMINATION
       set_behavior();
     }
-    mEDEA();
+    mesure_qualite();
+  }
+  else if(mydata->state == BROADCAST) {
+    nest();
+    if(mydata->new_message) {
+      mydata->new_message = 0;
+      collisions();
+      if(mydata->flag_nest) {
+        if(mydata->flag_listener != 0 && !mydata->flag_voisin_deja_rencontre) {
+          mydata->cpt_voisins ++;
+          mydata->indice_genomeList ++;
+        }
+      }
+    }
+    else { // si aucun message reçu en cas de DISSEMINATION
+      set_behavior();
+    }
+    //choix_genome_vm();
+    choix_genome_mr();
   }
   else if(mydata->state == EXPLORATION) {
     if (mydata->new_message) {
@@ -456,7 +458,7 @@ message_t *message_tx() {
 
 /* SPEAKER */
 message_t *message_tx() { // speaker pour envoyer son opinion
-  if (mydata->state == DISSEMINATION) {
+  if(mydata->state == MESURE_QUALITE || mydata->state == BROADCAST) {
   	if (mydata->flag_speaker == 1) return &mydata->message_a;
   	else if (mydata->flag_speaker == 2) return &mydata->message_b;
     else printf("ERREUR MESSAGE_TX 1 \n");
@@ -488,7 +490,7 @@ void message_rx(message_t *msg, distance_measurement_t *dist) {
   mydata->flag_listener = msg->data[0];
 
   // à remplir le tableau des uids ici
-  if(mydata->state == DISSEMINATION && mydata->flag_listener != 0) {
+  if((mydata->state == MESURE_QUALITE || mydata->state == BROADCAST) && mydata->flag_listener != 0) {
     if(recherche(mydata->tab_uid,100,msg->data[1])) { // voisin déjà rencontré
       mydata->flag_voisin_deja_rencontre = 1;
     }
@@ -500,6 +502,11 @@ void message_rx(message_t *msg, distance_measurement_t *dist) {
       //mydata->cpt_voisins ++;
     }
   }
+  /*
+  else if (mydata->state == MESURE_QUALITE) {
+
+  }
+  */
   else if (mydata->state == EXPLORATION) {
 
   }
@@ -524,7 +531,7 @@ void setup() {// initialisation au tout début, une seule fois
   mydata->direction = FORWARD;
   mydata->new_message = 0;
 
-  mydata->state = DISSEMINATION;
+  mydata->state = MESURE_QUALITE;
 
   mydata->cpt_voisins = 0;
   mydata->flag_voisin_deja_rencontre = 0;
@@ -534,7 +541,9 @@ void setup() {// initialisation au tout début, une seule fois
   mydata->quality_of_site = 2;
 
   // conversion en nombre de ticks
-  mydata->dissemination_time = dissemination_time;
+  //mydata->dissemination_time = dissemination_time;
+  mydata->mesure_qualite_time = mesure_qualite_time;
+  mydata->broadcast_time = broadcast_time;
   mydata->exploration_time = exploration_time;
 
   //setup_message(); // A METTRE APRES L'INITIALISATION DU GENOME
@@ -578,11 +587,12 @@ void setup() {// initialisation au tout début, une seule fois
     }
     else printf("ERREUR SETUP GENOME\n");
     mydata->genome[i] = tirage;
-    printf("kilo_uid : %d ; mydata->genome[%d] : %d \n", kilo_uid, i, mydata->genome[i]);
+    //printf("kilo_uid : %d ; mydata->genome[%d] : %d \n", kilo_uid, i, mydata->genome[i]);
   }
 
   mydata->indice_genomeList = 0;
   mydata->penalite_recompense = penalite_recompense;
+  mydata->change_genome = 1;
 
   setup_message(); // attention à mettre après l'initialisation du génome
   //exit(0);
@@ -605,12 +615,16 @@ char *cb_botinfo(void) {
   proba_a = mydata->opinion_a / total;
   proba_b = mydata->opinion_b / total;
   
-  if (mydata->state == DISSEMINATION) {
+  if (mydata->state == MESURE_QUALITE) {
       p += sprintf (p, "Opinion a: %f ;", proba_a);
       p += sprintf (p, "Opinion b: %f ;", proba_b);
       p += sprintf (p, "cpt voisins : %d \n", mydata->cpt_voisins);
       p += sprintf (p, "Opinion : %d \n", mydata->flag_speaker);
       p += sprintf (p, "Genome courant : [ %d , %d ] \n", mydata->genome[0], mydata->genome[1]);
+  }
+  else if (mydata->state == BROADCAST) {
+    p += sprintf (p, "cpt voisins : %d \n", mydata->cpt_voisins);
+    p += sprintf (p, "Genome courant : [ %d , %d ] \n", mydata->genome[0], mydata->genome[1]);
   }
   else if (mydata->state == EXPLORATION) {
     p += sprintf (p, "Opinion : %d \n", mydata->flag_speaker);
@@ -640,9 +654,9 @@ int16_t cb_lighting(double x, double y) {
 /* 3 lumières pour représenter les 3 zones de l'arène : le site b, le nid, et le site a */
 
 int16_t cb_lighting(double x, double y) {
-  if (mydata->state == DISSEMINATION) {
-    double light_x = 0;
-    double light_y = 0;
+  if (mydata->state == MESURE_QUALITE || mydata->state == BROADCAST) {
+    double light_x = 0.0;
+    double light_y = 0.0;
     double dist_x = pow(light_x + x, 2);
     double dist_y = pow(light_y + y, 2);
     double dist_c = sqrt(dist_x + dist_y);
