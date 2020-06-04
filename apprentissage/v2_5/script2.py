@@ -1,7 +1,7 @@
 import os
 import matplotlib.pyplot as plt
 
-nbre_runs = 10
+nbre_runs = 1
 nombre_intervalle_temps_min = 17
 intervalle_temps_min = 15
 

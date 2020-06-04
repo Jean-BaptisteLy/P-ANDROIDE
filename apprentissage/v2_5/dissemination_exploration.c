@@ -26,12 +26,12 @@ static const uint32_t exploration_time = 11294; // en kiloticks
 static const uint32_t taille_nest = 230;
 
 // informations pour tracer les courbes
-//static const uint8_t intervalle_temps_min = 15;
-//static const uint32_t intervalle_temps_kiloticks = intervalle_temps_min * 1860;
+static const uint8_t intervalle_temps_min = 15;
+static const uint32_t intervalle_temps_kiloticks = intervalle_temps_min * 1860;
 // 1860 kiloticks = 1 min
 
 // temps limite
-static const uint8_t temps_limite_min = 180;
+static const uint8_t temps_limite_min = 210;
 static const uint32_t temps_limite_kiloticks = temps_limite_min * 1860;
 
 // mEDEA
@@ -248,7 +248,13 @@ void mesure_qualite() { // mesure la qualité, donne la pénalité/récompense, 
       printf("kilo_uid = %d ; genome[0] = %d ; genome[1] = %d \n", kilo_uid,mydata->genome[0],mydata->genome[1]);
       printf("kilo_uid : %d ; mydata->flag_speaker : %d \n", kilo_uid, mydata->flag_speaker);
     }
-    if (opinion_a_courante > genome_theorique[0]+marge_erreur && opinion_b_courante < genome_theorique[1]-marge_erreur) {
+
+    
+    mydata->penalite_recompense = fabs(opinion_a_courante - genome_theorique[0]) * 100;
+    if(kilo_uid == 0) { 
+      printf("mydata->penalite_recompense : %d \n", mydata->penalite_recompense);
+    }
+    if (opinion_a_courante > genome_theorique[0]+marge_erreur && opinion_b_courante < genome_theorique[1]-marge_erreur) {     
       if(mydata->genome[0] <= mydata->penalite_recompense) {
         mydata->genome[0] = 0;
         mydata->genome[1] = nbre_kilobots;
@@ -258,7 +264,7 @@ void mesure_qualite() { // mesure la qualité, donne la pénalité/récompense, 
         mydata->genome[1] += mydata->penalite_recompense;
       }
     }
-    else if (opinion_a_courante < genome_theorique[0]-marge_erreur && opinion_b_courante > genome_theorique[1]+marge_erreur) {
+    else if (opinion_a_courante < genome_theorique[0]-marge_erreur && opinion_b_courante > genome_theorique[1]+marge_erreur) {      
       if(mydata->genome[1] <= mydata->penalite_recompense) {
         mydata->genome[0] = nbre_kilobots;
         mydata->genome[1] = 0;
@@ -274,6 +280,8 @@ void mesure_qualite() { // mesure la qualité, donne la pénalité/récompense, 
       mydata->genome[1] = mydata->genome[1];
       mydata->change_genome = 0;
     }
+    //mydata->genome[0] = 34;
+    //mydata->genome[1] = 66;
     /*
     else {
       printf("ERREUR MESURE_QUALITE 1\n");
@@ -367,8 +375,76 @@ void loop() {
     printf("Kiloticks du consensus : %d \n", kilo_ticks);
     min = kilo_ticks / 31 / 60;
     printf("Temps en min du consensus : %d \n", min);
+    if ((double)tableau_nbre_agents[0] / 2.0 <= nbre_theorique_a)
+      qualite_consensus_a[dernier_indice_temps] = fabs((nbre_theorique_a - fabs(nbre_theorique_a - tableau_nbre_agents[0])) / nbre_theorique_a);
+    else qualite_consensus_a[dernier_indice_temps] = 0.0;
+    
+    if ((double)tableau_nbre_agents[1] / 2.0 <= nbre_theorique_b)
+      qualite_consensus_b[dernier_indice_temps] = fabs((nbre_theorique_b - fabs(nbre_theorique_b - tableau_nbre_agents[1])) / nbre_theorique_b);
+    else qualite_consensus_b[dernier_indice_temps] = 0.0;
+    
+    qualite_consensus_global[mydata->indice_temps] = (qualite_consensus_a[mydata->indice_temps] + qualite_consensus_b[mydata->indice_temps]) / NBRE_OPTIONS;
+    
+    printf("######################### QUALITES FINALES ######################### \n");
+    printf("qualite_consensus_a = %f\n", qualite_consensus_a[dernier_indice_temps]);
+    printf("qualite_consensus_b = %f\n", qualite_consensus_b[dernier_indice_temps]);
+    printf("qualite_consensus_global = %f\n", qualite_consensus_global[dernier_indice_temps]);
+
+    FILE* fichier2 = NULL;
+    fichier2 = fopen("resultats_nets.txt","w");
+    if (fichier2 != NULL) {
+
+      uint8_t i;
+
+      fprintf(fichier2, "qualite_consensus_a\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_a[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_a[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_a[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_b\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min-1) fprintf(fichier2, "%f \n", qualite_consensus_b[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_b[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_b[i]);
+        }
+      }
+
+      fprintf(fichier2, "qualite_consensus_global\n");
+      for (i = 0; i < nombre_intervalle_temps_min; i++) {
+        if (i == nombre_intervalle_temps_min) fprintf(fichier2, "%f \n", qualite_consensus_global[dernier_indice_temps]);
+        else {
+          if (i > dernier_indice_temps) fprintf(fichier2, "%f ", qualite_consensus_global[dernier_indice_temps]);
+          else fprintf(fichier2, "%f ", qualite_consensus_global[i]);
+        }
+      }
+
+      fprintf(fichier2, "Kiloticks du consensus\n%d\n", kilo_ticks);
+      fprintf(fichier2, "Temps en min du consensus\n%d\n", min);
+      fclose(fichier2);
+    }
+
     exit(0);
   }
+  else if(kilo_uid == 0 && (kilo_ticks % intervalle_temps_kiloticks == 0 || kilo_ticks % intervalle_temps_kiloticks == 1) && kilo_ticks != 1) {
+    if ((double)tableau_nbre_agents[0] / 2.0 <= nbre_theorique_a)
+      qualite_consensus_a[dernier_indice_temps] = fabs((nbre_theorique_a - fabs(nbre_theorique_a - tableau_nbre_agents[0])) / nbre_theorique_a);
+    else qualite_consensus_a[dernier_indice_temps] = 0.0;
+    
+    if ((double)tableau_nbre_agents[1] / 2.0 <= nbre_theorique_b)
+      qualite_consensus_b[dernier_indice_temps] = fabs((nbre_theorique_b - fabs(nbre_theorique_b - tableau_nbre_agents[1])) / nbre_theorique_b);
+    else qualite_consensus_b[dernier_indice_temps] = 0.0;
+    
+    qualite_consensus_global[mydata->indice_temps] = (qualite_consensus_a[mydata->indice_temps] + qualite_consensus_b[mydata->indice_temps]) / NBRE_OPTIONS;
+    
+    mydata->indice_temps ++;
+    dernier_indice_temps = mydata->indice_temps;
+  }
+
   if(mydata->state == MESURE_QUALITE) {
     nest();
     if (mydata->new_message) {
@@ -406,8 +482,8 @@ void loop() {
     else { // si aucun message reçu en cas de DISSEMINATION
       set_behavior();
     }
-    //choix_genome_vm();
-    choix_genome_mr();
+    choix_genome_vm();
+    //choix_genome_mr();
   }
   else if(mydata->state == EXPLORATION) {
     if (mydata->new_message) {
@@ -593,6 +669,9 @@ void setup() {// initialisation au tout début, une seule fois
   mydata->indice_genomeList = 0;
   mydata->penalite_recompense = penalite_recompense;
   mydata->change_genome = 1;
+  
+  //mydata->genome[0] = 34;
+  //mydata->genome[1] = 66;
 
   setup_message(); // attention à mettre après l'initialisation du génome
   //exit(0);

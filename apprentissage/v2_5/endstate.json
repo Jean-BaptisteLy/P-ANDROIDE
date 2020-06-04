@@ -2,1104 +2,1104 @@
   "bot_states": [
     {
       "ID": 0,
-      "direction": -0.18980551876393012,
+      "direction": -0.50178262978208932,
       "state": {
         "Opinion": 1,
-        "genome_a": 52,
-        "genome_b": 48
+        "genome_a": 2,
+        "genome_b": 98
       },
-      "x_position": 1.3129237885924319,
-      "y_position": 9.8893119791450026
+      "x_position": -0.11530954221342071,
+      "y_position": 4.8039374910560166
     },
     {
       "ID": 1,
-      "direction": -0.18980551876393012,
+      "direction": -0.50178262978208932,
       "state": {
         "Opinion": 2,
-        "genome_a": 23,
-        "genome_b": 77
-      },
-      "x_position": 1.3129237885924319,
-      "y_position": 54.514311979144999
-    },
-    {
-      "ID": 2,
-      "direction": 0.70779241256150527,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 29,
-        "genome_b": 71
-      },
-      "x_position": 55.102000754366905,
-      "y_position": 33.252464675888348
-    },
-    {
-      "ID": 3,
-      "direction": 1.6053903587880956,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 93,
-        "genome_b": 7
-      },
-      "x_position": 68.098304747875432,
-      "y_position": -12.945055843982161
-    },
-    {
-      "ID": 4,
-      "direction": 2.5029883869710789,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": 28.923980649578048,
-      "y_position": -49.685357198224239
-    },
-    {
-      "ID": 5,
-      "direction": 3.4005860575261937,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 42,
-        "genome_b": 58
-      },
-      "x_position": -31.289798794378058,
-      "y_position": -48.546040340780479
-    },
-    {
-      "ID": 6,
-      "direction": 4.2887299954415763,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 68,
-        "genome_b": 32
-      },
-      "x_position": -67.93941396295638,
-      "y_position": -11.129568477288595
-    },
-    {
-      "ID": 7,
-      "direction": 5.1957818754736094,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 71,
-        "genome_b": 29
-      },
-      "x_position": -53.43216287173982,
-      "y_position": 35.015595257381392
-    },
-    {
-      "ID": 8,
-      "direction": -0.18980551876393012,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 46,
-        "genome_b": 54
-      },
-      "x_position": 1.3129237885924319,
-      "y_position": 99.13931197914502
-    },
-    {
-      "ID": 9,
-      "direction": 0.25899346552523816,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 43,
-        "genome_b": 57
-      },
-      "x_position": 57.105879401431629,
-      "y_position": 88.751774256590508
-    },
-    {
-      "ID": 10,
-      "direction": 0.70779241256150527,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 12,
-        "genome_b": 88
-      },
-      "x_position": 101.58831880217004,
-      "y_position": 60.78586505683289
-    },
-    {
-      "ID": 11,
-      "direction": 1.0904144413580086,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 81,
-        "genome_b": 19
-      },
-      "x_position": 125.94432184483537,
-      "y_position": 22.691783460186134
-    },
-    {
-      "ID": 12,
-      "direction": 1.6053903587880956,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 46,
-        "genome_b": 54
-      },
-      "x_position": 126.6004356624278,
-      "y_position": -22.564701760205708
-    },
-    {
-      "ID": 13,
-      "direction": 2.0541892536702977,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 87,
-        "genome_b": 13
-      },
-      "x_position": 99.951129317923971,
-      "y_position": -62.838831942580953
-    },
-    {
-      "ID": 14,
-      "direction": 2.5029881485524998,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 42,
-        "genome_b": 58
-      },
-      "x_position": 54.740083983914019,
-      "y_position": -89.891086895473805
-    },
-    {
-      "ID": 15,
-      "direction": 2.9517869242254124,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 23,
-        "genome_b": 77
-      },
-      "x_position": -1.3129037373994876,
-      "y_position": -99.139312255646999
-    },
-    {
-      "ID": 16,
-      "direction": 3.4005858191076146,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 9,
-        "genome_b": 91
-      },
-      "x_position": -57.105854011094166,
-      "y_position": -88.751783528139768
-    },
-    {
-      "ID": 17,
-      "direction": 3.8493847139898167,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 71,
-        "genome_b": 29
-      },
-      "x_position": -101.5882941040872,
-      "y_position": -60.785887141429839
-    },
-    {
-      "ID": 18,
-      "direction": 4.2981838472906118,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 51,
-        "genome_b": 49
-      },
-      "x_position": -126.26028911233651,
-      "y_position": -21.274496600894274
-    },
-    {
-      "ID": 19,
-      "direction": 4.7469832190099863,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": -125.36563072813547,
-      "y_position": 23.340590141270891
-    },
-    {
-      "ID": 20,
-      "direction": 5.1957823523107676,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 39,
-        "genome_b": 61
-      },
-      "x_position": -99.951103228770762,
-      "y_position": 62.838857907479813
-    },
-    {
-      "ID": 21,
-      "direction": 5.6445814856115488,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 82,
-        "genome_b": 18
-      },
-      "x_position": -54.740016469729596,
-      "y_position": 89.891111907815471
-    },
-    {
-      "ID": 22,
-      "direction": -0.18980551876393012,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 18,
-        "genome_b": 82
-      },
-      "x_position": 1.3129237885924319,
-      "y_position": 143.76431197914499
-    },
-    {
-      "ID": 23,
-      "direction": 0.10939382396373037,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 71,
-        "genome_b": 29
-      },
-      "x_position": 56.783320578634346,
-      "y_position": 136.99027346708911
-    },
-    {
-      "ID": 24,
-      "direction": 0.40859312198790776,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 98,
-        "genome_b": 2
-      },
-      "x_position": 107.20827183078856,
-      "y_position": 118.04405311178046
-    },
-    {
-      "ID": 25,
-      "direction": 0.70779241256150527,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 78,
-        "genome_b": 22
-      },
-      "x_position": 148.10728547697474,
-      "y_position": 88.609095800241093
-    },
-    {
-      "ID": 26,
-      "direction": 1.0069917627397473,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 42,
-        "genome_b": 58
-      },
-      "x_position": 175.84633099278827,
-      "y_position": 51.300827039416397
-    },
-    {
-      "ID": 27,
-      "direction": 1.2683756682689424,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 11,
-        "genome_b": 89
-      },
-      "x_position": 188.14768739156946,
-      "y_position": 10.501145619358159
-    },
-    {
-      "ID": 28,
-      "direction": 1.6053904779973851,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 100,
-        "genome_b": 0
-      },
-      "x_position": 183.86776198396686,
-      "y_position": -32.960243882108912
-    },
-    {
-      "ID": 29,
-      "direction": 1.9045897015157567,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 31,
-        "genome_b": 69
-      },
-      "x_position": 162.49345830134018,
-      "y_position": -73.01918990535944
-    },
-    {
-      "ID": 30,
-      "direction": 2.2037890442434178,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 100,
-        "genome_b": 0
-      },
-      "x_position": 127.17481786505238,
-      "y_position": -106.27972365056439
-    },
-    {
-      "ID": 31,
-      "direction": 2.5029883869710789,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 52,
-        "genome_b": 48
-      },
-      "x_position": 80.556133206951031,
-      "y_position": -130.09683714817541
-    },
-    {
-      "ID": 32,
-      "direction": 2.8021876104894505,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": 26.779676234153712,
-      "y_position": -142.35426791861849
-    },
-    {
-      "ID": 33,
-      "direction": 3.1013869532171117,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 29,
-        "genome_b": 71
-      },
-      "x_position": -29.376270609916684,
-      "y_position": -141.96288989784986
-    },
-    {
-      "ID": 34,
-      "direction": 3.4005862959447728,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 44,
-        "genome_b": 56
-      },
-      "x_position": -82.922004838647965,
-      "y_position": -128.95749991220978
-    },
-    {
-      "ID": 35,
-      "direction": 3.6997856386724339,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 5,
-        "genome_b": 95
-      },
-      "x_position": -129.0997566655173,
-      "y_position": -104.49365269901494
-    },
-    {
-      "ID": 36,
-      "direction": 3.998984742981516,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 69,
-        "genome_b": 31
-      },
-      "x_position": -163.80639828254883,
-      "y_position": -70.745114851418066
-    },
-    {
-      "ID": 37,
-      "direction": 4.2981838472906118,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 12,
-        "genome_b": 88
-      },
-      "x_position": -183.95814686591294,
-      "y_position": -30.710575186737444
-    },
-    {
-      "ID": 38,
-      "direction": 4.5973831900182871,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 75,
-        "genome_b": 25
-      },
-      "x_position": -187.76442974732944,
-      "y_position": 12.052735465815569
-    },
-    {
-      "ID": 39,
-      "direction": 4.8965822943273691,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 14,
-        "genome_b": 86
-      },
-      "x_position": -174.88703289044287,
-      "y_position": 53.745104433052965
-    },
-    {
-      "ID": 40,
-      "direction": 5.1957813986364512,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": -146.4701759448831,
-      "y_position": 90.6619943199278
-    },
-    {
-      "ID": 41,
-      "direction": 5.4949805029455332,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 86,
-        "genome_b": 14
-      },
-      "x_position": -105.03882262143597,
-      "y_position": 119.52317425156015
-    },
-    {
-      "ID": 42,
-      "direction": 5.7941796072546152,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 93,
-        "genome_b": 7
-      },
-      "x_position": -54.27431961294004,
-      "y_position": 137.7642161949791
-    },
-    {
-      "ID": 43,
-      "direction": -0.18980551876393012,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 98,
-        "genome_b": 2
-      },
-      "x_position": 1.3129237885924319,
-      "y_position": 188.38931197914499
-    },
-    {
-      "ID": 44,
-      "direction": 0.026856053692429278,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 72,
-        "genome_b": 28
-      },
-      "x_position": 54.571102071818196,
-      "y_position": 183.70263248908131
-    },
-    {
-      "ID": 45,
-      "direction": 0.24351762614878861,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 35,
-        "genome_b": 65
-      },
-      "x_position": 105.27759323063064,
-      "y_position": 170.42622649576015
-    },
-    {
-      "ID": 46,
-      "direction": 0.46017915390166525,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 21,
-        "genome_b": 79
-      },
-      "x_position": 151.06142966162463,
-      "y_position": 149.18088052468792
-    },
-    {
-      "ID": 47,
-      "direction": 0.6768407338086061,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 79,
-        "genome_b": 21
-      },
-      "x_position": 189.78178898095973,
-      "y_position": 120.96000064145454
-    },
-    {
-      "ID": 48,
-      "direction": 0.89350225411090223,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 5,
-        "genome_b": 95
-      },
-      "x_position": 219.62817434248865,
-      "y_position": 87.083169722787133
-    },
-    {
-      "ID": 49,
-      "direction": 1.0250791301236233,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 71,
-        "genome_b": 29
-      },
-      "x_position": 240.46347769743363,
-      "y_position": 52.275639012616345
-    },
-    {
-      "ID": 50,
-      "direction": 1.1472021840896303,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 31,
-        "genome_b": 69
-      },
-      "x_position": 250.38398463191669,
-      "y_position": 14.674158882298219
-    },
-    {
-      "ID": 51,
-      "direction": 1.5434869416776531,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 42,
-        "genome_b": 58
-      },
-      "x_position": 245.59578378961558,
-      "y_position": -30.922838169213289
-    },
-    {
-      "ID": 52,
-      "direction": 1.7601485737386571,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": 229.7974433243995,
-      "y_position": -70.94974397552653
-    },
-    {
-      "ID": 53,
-      "direction": 1.9768100269857274,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 47,
-        "genome_b": 53
-      },
-      "x_position": 204.438484883444,
-      "y_position": -106.80831333724191
-    },
-    {
-      "ID": 54,
-      "direction": 2.1934714802327977,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 12,
-        "genome_b": 88
-      },
-      "x_position": 169.52021512113953,
-      "y_position": -137.67265598807259
-    },
-    {
-      "ID": 55,
-      "direction": 2.410132933479868,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 50,
-        "genome_b": 50
-      },
-      "x_position": 126.67537650824985,
-      "y_position": -162.09958429507142
-    },
-    {
-      "ID": 56,
-      "direction": 2.6267942675176488,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 25,
-        "genome_b": 75
-      },
-      "x_position": 77.907347150726338,
-      "y_position": -178.94692232468944
-    },
-    {
-      "ID": 57,
-      "direction": 2.8434557207647191,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 53,
-        "genome_b": 47
-      },
-      "x_position": 25.496463572429406,
-      "y_position": -187.42690587051328
-    },
-    {
-      "ID": 58,
-      "direction": 3.0601171740117894,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 59,
-        "genome_b": 41
-      },
-      "x_position": -28.106607270839667,
-      "y_position": -187.14303393792289
-    },
-    {
-      "ID": 59,
-      "direction": 3.2767786272588597,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 24,
-        "genome_b": 76
-      },
-      "x_position": -80.395444899028519,
-      "y_position": -178.10856621785098
-    },
-    {
-      "ID": 60,
-      "direction": 3.49344008050593,
-      "state": {
-        "Opinion": 1,
         "genome_a": 83,
         "genome_b": 17
       },
-      "x_position": -128.92509088791638,
-      "y_position": -160.74593240941209
+      "x_position": -0.11530954221342071,
+      "y_position": 49.428937491056018
     },
     {
-      "ID": 61,
-      "direction": 3.7101015337530003,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 59,
-        "genome_b": 41
-      },
-      "x_position": -171.42634678341105,
-      "y_position": -135.86702399908941
-    },
-    {
-      "ID": 62,
-      "direction": 3.9267629870000706,
+      "ID": 2,
+      "direction": 0.39581530154334593,
       "state": {
         "Opinion": 1,
-        "genome_a": 74,
-        "genome_b": 26
+        "genome_a": 16,
+        "genome_b": 84
       },
-      "x_position": -205.9119029603192,
-      "y_position": -104.63513001069013
+      "x_position": 50.366230926354447,
+      "y_position": 32.357752552966332
     },
     {
-      "ID": 63,
-      "direction": 4.0867013291529348,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 35,
-        "genome_b": 65
-      },
-      "x_position": -230.63279269540504,
-      "y_position": -70.072591026639287
-    },
-    {
-      "ID": 64,
-      "direction": 4.3506320416451931,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 86,
-        "genome_b": 14
-      },
-      "x_position": -245.54696339510963,
-      "y_position": -30.397006290710848
-    },
-    {
-      "ID": 65,
-      "direction": 4.3309471986663866,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 17,
-        "genome_b": 83
-      },
-      "x_position": -249.7714978163682,
-      "y_position": 5.8001107096027233
-    },
-    {
-      "ID": 66,
-      "direction": 4.7555936310108171,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 39,
-        "genome_b": 61
-      },
-      "x_position": -239.0400193275693,
-      "y_position": 50.723829085118638
-    },
-    {
-      "ID": 67,
-      "direction": 5.0100704916540293,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 54,
-        "genome_b": 46
-      },
-      "x_position": -218.39839701569269,
-      "y_position": 89.402850600761326
-    },
-    {
-      "ID": 68,
-      "direction": 5.2267319449010996,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 27,
-        "genome_b": 73
-      },
-      "x_position": -188.08213771590479,
-      "y_position": 122.96106725323027
-    },
-    {
-      "ID": 69,
-      "direction": 5.4433933981481699,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 14,
-        "genome_b": 86
-      },
-      "x_position": -148.97137643034515,
-      "y_position": 150.76975363433496
-    },
-    {
-      "ID": 70,
-      "direction": 5.6600548513952402,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 67,
-        "genome_b": 33
-      },
-      "x_position": -102.89489048427366,
-      "y_position": 171.52863343006339
-    },
-    {
-      "ID": 71,
-      "direction": 5.8767163046423105,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 79,
-        "genome_b": 21
-      },
-      "x_position": -52.007152637900788,
-      "y_position": 184.26703421817299
-    },
-    {
-      "ID": 72,
-      "direction": -0.18980551876393012,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 98,
-        "genome_b": 2
-      },
-      "x_position": 1.3129237885924319,
-      "y_position": 233.01431197914499
-    },
-    {
-      "ID": 73,
-      "direction": -0.015272568839461492,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 60,
-        "genome_b": 40
-      },
-      "x_position": 54.670570490914372,
-      "y_position": 229.24631370347311
-    },
-    {
-      "ID": 74,
-      "direction": 0.15926035128268476,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 77,
-        "genome_b": 23
-      },
-      "x_position": 106.36708069134517,
-      "y_position": 218.5127818133283
-    },
-    {
-      "ID": 75,
-      "direction": 0.33379330120715345,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 70,
-        "genome_b": 30
-      },
-      "x_position": 154.83168169462343,
-      "y_position": 201.13985157069288
-    },
-    {
-      "ID": 76,
-      "direction": 0.50832618407639751,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 93,
-        "genome_b": 7
-      },
-      "x_position": 198.59179427679049,
-      "y_position": 177.65539686619482
-    },
-    {
-      "ID": 77,
-      "direction": 0.68285907439622207,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 96,
-        "genome_b": 4
-      },
-      "x_position": 236.3177920741181,
-      "y_position": 148.77296658281557
-    },
-    {
-      "ID": 78,
-      "direction": 0.85739197216662733,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 48,
-        "genome_b": 52
-      },
-      "x_position": 266.8634046721366,
-      "y_position": 115.37014644991216
-    },
-    {
-      "ID": 79,
-      "direction": 1.0035633069393461,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 96,
-        "genome_b": 4
-      },
-      "x_position": 290.2593429520727,
-      "y_position": 80.604516891008728
-    },
-    {
-      "ID": 80,
-      "direction": 1.0930115008155308,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 67,
-        "genome_b": 33
-      },
-      "x_position": 304.38668078762345,
-      "y_position": 42.75248287407328
-    },
-    {
-      "ID": 81,
-      "direction": 1.2297289837392127,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 78,
-        "genome_b": 22
-      },
-      "x_position": 310.26515645126824,
-      "y_position": 3.635825078470539
-    },
-    {
-      "ID": 82,
-      "direction": 1.5555235036435953,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 38,
-        "genome_b": 62
-      },
-      "x_position": 303.44707684616515,
-      "y_position": -41.086261949801028
-    },
-    {
-      "ID": 83,
-      "direction": 1.7300564535680638,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 19,
-        "genome_b": 81
-      },
-      "x_position": 288.40246180476197,
-      "y_position": -80.929273530031466
-    },
-    {
-      "ID": 84,
-      "direction": 1.9045894630971776,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 25,
-        "genome_b": 75
-      },
-      "x_position": 265.55051236363056,
-      "y_position": -117.644142243594
-    },
-    {
-      "ID": 85,
-      "direction": 2.0791223534170018,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 49,
-        "genome_b": 51
-      },
-      "x_position": 234.62999214166052,
-      "y_position": -150.78443542876596
-    },
-    {
-      "ID": 86,
-      "direction": 2.253655243736826,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 67,
-        "genome_b": 33
-      },
-      "x_position": 196.58034095539,
-      "y_position": -179.34321237416296
-    },
-    {
-      "ID": 87,
-      "direction": 2.4281881340566502,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 48,
-        "genome_b": 52
-      },
-      "x_position": 152.55770900563252,
-      "y_position": -202.45274425420038
-    },
-    {
-      "ID": 88,
-      "direction": 2.6027209051671849,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 100,
-        "genome_b": 0
-      },
-      "x_position": 103.89968617346193,
-      "y_position": -219.41084333626796
-    },
-    {
-      "ID": 89,
-      "direction": 2.7772537954870091,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 26,
-        "genome_b": 74
-      },
-      "x_position": 52.084726142787467,
-      "y_position": -229.70227199000811
-    },
-    {
-      "ID": 90,
-      "direction": 2.9517866858068333,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 71,
-        "genome_b": 29
-      },
-      "x_position": -1.3128034973227738,
-      "y_position": -233.01431256867161
-    },
-    {
-      "ID": 91,
-      "direction": 3.1263195761266576,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 82,
-        "genome_b": 18
-      },
-      "x_position": -54.670443583038896,
-      "y_position": -229.24633049333954
-    },
-    {
-      "ID": 92,
-      "direction": 3.3008524664464818,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 84,
-        "genome_b": 16
-      },
-      "x_position": -106.36694622986951,
-      "y_position": -218.51281481632725
-    },
-    {
-      "ID": 93,
-      "direction": 3.475385356766306,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 44,
-        "genome_b": 56
-      },
-      "x_position": -154.8315548951235,
-      "y_position": -201.13991624287965
-    },
-    {
-      "ID": 94,
-      "direction": 3.6499182470861302,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 17,
-        "genome_b": 83
-      },
-      "x_position": -198.59166823085621,
-      "y_position": -177.65546224948676
-    },
-    {
-      "ID": 95,
-      "direction": 3.8244513758245335,
-      "state": {
-        "Opinion": 2,
-        "genome_a": 69,
-        "genome_b": 31
-      },
-      "x_position": -236.31774441334494,
-      "y_position": -148.77301532423539
-    },
-    {
-      "ID": 96,
-      "direction": 3.9989842661443578,
-      "state": {
-        "Opinion": 1,
-        "genome_a": 60,
-        "genome_b": 40
-      },
-      "x_position": -266.86337278528771,
-      "y_position": -115.37020317160497
-    },
-    {
-      "ID": 97,
-      "direction": 4.1262478972190131,
+      "ID": 3,
+      "direction": 1.2934132477699398,
       "state": {
         "Opinion": 2,
         "genome_a": 55,
         "genome_b": 45
       },
-      "x_position": -289.18333810311344,
-      "y_position": -79.794418471488768
+      "x_position": 63.458243220784475,
+      "y_position": -10.421028673735989
     },
     {
-      "ID": 98,
-      "direction": 4.3007807875388453,
+      "ID": 4,
+      "direction": 2.1910112759529232,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 31,
+        "genome_b": 69
+      },
+      "x_position": 28.004314173145591,
+      "y_position": -44.483905698550622
+    },
+    {
+      "ID": 5,
+      "direction": 3.088608946508038,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 100,
+        "genome_b": 0
+      },
+      "x_position": -27.796543839711596,
+      "y_position": -44.583963366133368
+    },
+    {
+      "ID": 6,
+      "direction": 3.9862067362724423,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 28,
+        "genome_b": 72
+      },
+      "x_position": -62.666043025594284,
+      "y_position": -11.111396101380464
+    },
+    {
+      "ID": 7,
+      "direction": 4.8743509126064035,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 84,
+        "genome_b": 16
+      },
+      "x_position": -51.68389006891919,
+      "y_position": 30.470491927254777
+    },
+    {
+      "ID": 8,
+      "direction": -0.50178262978208932,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 13,
+        "genome_b": 87
+      },
+      "x_position": -0.11530954221342071,
+      "y_position": 94.053937491056018
+    },
+    {
+      "ID": 9,
+      "direction": -0.052983645492920492,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 50,
+        "genome_b": 50
+      },
+      "x_position": 53.612624202745437,
+      "y_position": 84.789697497088881
+    },
+    {
+      "ID": 10,
+      "direction": 0.39581530154334593,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 48,
+        "genome_b": 52
+      },
+      "x_position": 96.721923948573135,
+      "y_position": 58.731823854661712
+    },
+    {
+      "ID": 11,
+      "direction": 0.84461429328309623,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 74,
+        "genome_b": 26
+      },
+      "x_position": 120.82943592178655,
+      "y_position": 21.288342901160156
+    },
+    {
+      "ID": 12,
+      "direction": 1.2934132477699398,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 49,
+        "genome_b": 51
+      },
+      "x_position": 120.72556992024499,
+      "y_position": -20.816553409782749
+    },
+    {
+      "ID": 13,
+      "direction": 1.742212142652142,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 17,
+        "genome_b": 83
+      },
+      "x_position": 96.865712444617856,
+      "y_position": -58.551514966983227
+    },
+    {
+      "ID": 14,
+      "direction": 2.1910110375343441,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 13,
+        "genome_b": 87
+      },
+      "x_position": 53.820416267358908,
+      "y_position": -84.68963561506591
+    },
+    {
+      "ID": 15,
+      "direction": 2.6398098132072567,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 72,
+        "genome_b": 28
+      },
+      "x_position": 0.11532852242417135,
+      "y_position": -94.0539374667716
+    },
+    {
+      "ID": 16,
+      "direction": 3.0886087080894589,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 79,
+        "genome_b": 21
+      },
+      "x_position": -53.612600001060571,
+      "y_position": -84.78970572063588
+    },
+    {
+      "ID": 17,
+      "direction": 3.537407602971661,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 7,
+        "genome_b": 93
+      },
+      "x_position": -96.721899973844842,
+      "y_position": -58.731844225501995
+    },
+    {
+      "ID": 18,
+      "direction": 3.9862067362724423,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 76,
+        "genome_b": 24
+      },
+      "x_position": -120.82942799157949,
+      "y_position": -21.288357266222548
+    },
+    {
+      "ID": 19,
+      "direction": 4.4350061079918159,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 65,
+        "genome_b": 35
+      },
+      "x_position": -120.72556972258943,
+      "y_position": 20.816562012239054
+    },
+    {
+      "ID": 20,
+      "direction": 4.8838052412925972,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 22,
+        "genome_b": 78
+      },
+      "x_position": -96.865688263538104,
+      "y_position": 58.551539558715483
+    },
+    {
+      "ID": 21,
+      "direction": 5.3326043745933784,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 52,
+        "genome_b": 48
+      },
+      "x_position": -53.820352308206665,
+      "y_position": 84.689659998843979
+    },
+    {
+      "ID": 22,
+      "direction": -0.50178262978208932,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 78,
+        "genome_b": 22
+      },
+      "x_position": -0.11530954221342071,
+      "y_position": 138.67893749105599
+    },
+    {
+      "ID": 23,
+      "direction": -0.20258328705442835,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 88,
+        "genome_b": 12
+      },
+      "x_position": 53.919599015089645,
+      "y_position": 132.55180718493492
+    },
+    {
+      "ID": 24,
+      "direction": 0.096616010969748783,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 79,
+        "genome_b": 21
+      },
+      "x_position": 103.16351648608224,
+      "y_position": 114.64687217270746
+    },
+    {
+      "ID": 25,
+      "direction": 0.39581530154334593,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 32,
+        "genome_b": 68
+      },
+      "x_position": 143.24089062337785,
+      "y_position": 86.555054598069916
+    },
+    {
+      "ID": 26,
+      "direction": 0.69501465172158805,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 2,
+        "genome_b": 98
+      },
+      "x_position": 170.59069710934722,
+      "y_position": 50.772436450403276
+    },
+    {
+      "ID": 27,
+      "direction": 0.9942139646469268,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 30,
+        "genome_b": 70
+      },
+      "x_position": 183.16327308856899,
+      "y_position": 10.920613269336279
+    },
+    {
+      "ID": 28,
+      "direction": 1.2934133669792294,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 73,
+        "genome_b": 27
+      },
+      "x_position": 178.73377903472991,
+      "y_position": -30.746567627773558
+    },
+    {
+      "ID": 29,
+      "direction": 1.592612590497601,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 47,
+        "genome_b": 53
+      },
+      "x_position": 158.8035119178615,
+      "y_position": -69.239615879310591
+    },
+    {
+      "ID": 30,
+      "direction": 1.8918119332252621,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 65,
+        "genome_b": 35
+      },
+      "x_position": 124.76285464662119,
+      "y_position": -101.58043460175438
+    },
+    {
+      "ID": 31,
+      "direction": 2.1910112759529232,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 73,
+        "genome_b": 27
+      },
+      "x_position": 79.63646673051862,
+      "y_position": -124.89538564850179
+    },
+    {
+      "ID": 32,
+      "direction": 2.4902104994712948,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 30,
+        "genome_b": 70
+      },
+      "x_position": 27.434022300191856,
+      "y_position": -137.11282581198495
+    },
+    {
+      "ID": 33,
+      "direction": 2.7894098421989559,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 80,
+        "genome_b": 20
+      },
+      "x_position": -27.20605291721456,
+      "y_position": -137.14718233845494
+    },
+    {
+      "ID": 34,
+      "direction": 3.0886091849266171,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 27,
+        "genome_b": 73
+      },
+      "x_position": -79.42874893934885,
+      "y_position": -124.99542377041965
+    },
+    {
+      "ID": 35,
+      "direction": 3.3878085276542782,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 59,
+        "genome_b": 41
+      },
+      "x_position": -124.59385376346037,
+      "y_position": -101.73725592631226
+    },
+    {
+      "ID": 36,
+      "direction": 3.6870076319633602,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 79,
+        "genome_b": 21
+      },
+      "x_position": -158.68821804832643,
+      "y_position": -69.439314245909827
+    },
+    {
+      "ID": 37,
+      "direction": 3.9862067362724423,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 54,
+        "genome_b": 46
+      },
+      "x_position": -179.76869164491271,
+      "y_position": -32.70012272939617
+    },
+    {
+      "ID": 38,
+      "direction": 4.2854060790001167,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 43,
+        "genome_b": 57
+      },
+      "x_position": -182.80000683374186,
+      "y_position": 10.248465733658147
+    },
+    {
+      "ID": 39,
+      "direction": 4.5846051833091988,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 91,
+        "genome_b": 9
+      },
+      "x_position": -170.67498257254837,
+      "y_position": 50.557704826656263
+    },
+    {
+      "ID": 40,
+      "direction": 4.8838042876182808,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 3,
+        "genome_b": 97
+      },
+      "x_position": -143.38475689094645,
+      "y_position": 86.37467891364642
+    },
+    {
+      "ID": 41,
+      "direction": 5.1830033919273628,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 89,
+        "genome_b": 11
+      },
+      "x_position": -103.35418749797662,
+      "y_position": 114.51688933835953
+    },
+    {
+      "ID": 42,
+      "direction": 5.4822024962364448,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 64,
+        "genome_b": 36
+      },
+      "x_position": -54.140155448894802,
+      "y_position": 132.48379158057364
+    },
+    {
+      "ID": 43,
+      "direction": -0.50178262978208932,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 51,
+        "genome_b": 49
+      },
+      "x_position": -0.11530954221342071,
+      "y_position": 183.30393749105599
+    },
+    {
+      "ID": 44,
+      "direction": -0.28512105732572945,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 6,
+        "genome_b": 94
+      },
+      "x_position": 52.083054803014491,
+      "y_position": 179.04317920360569
+    },
+    {
+      "ID": 45,
+      "direction": -0.068459484869370063,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 76,
+        "genome_b": 24
+      },
+      "x_position": 101.84607035969913,
+      "y_position": 166.41056529022936
+    },
+    {
+      "ID": 46,
+      "direction": 0.14820204288350614,
       "state": {
         "Opinion": 1,
         "genome_a": 23,
         "genome_b": 77
       },
-      "x_position": -303.62312543550468,
-      "y_position": -41.172146673850314
+      "x_position": 146.84688554144651,
+      "y_position": 145.99677908308726
+    },
+    {
+      "ID": 47,
+      "direction": 0.36486362279044671,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 84,
+        "genome_b": 16
+      },
+      "x_position": 184.98129083290604,
+      "y_position": 118.75634421136741
+    },
+    {
+      "ID": 48,
+      "direction": 0.58152514309274284,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 81,
+        "genome_b": 19
+      },
+      "x_position": 214.46618822766467,
+      "y_position": 85.962998538683692
+    },
+    {
+      "ID": 49,
+      "direction": 0.69419431540739385,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 97,
+        "genome_b": 3
+      },
+      "x_position": 234.02185443382155,
+      "y_position": 51.417212570521272
+    },
+    {
+      "ID": 50,
+      "direction": 0.89194818416568344,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 49,
+        "genome_b": 51
+      },
+      "x_position": 243.10291919673753,
+      "y_position": 12.643102805057481
+    },
+    {
+      "ID": 51,
+      "direction": 1.1653328677162522,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 3,
+        "genome_b": 97
+      },
+      "x_position": 240.24249038918623,
+      "y_position": -28.150561997920367
+    },
+    {
+      "ID": 52,
+      "direction": 1.4481714627205013,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 49,
+        "genome_b": 51
+      },
+      "x_position": 225.60189256545371,
+      "y_position": -67.740657195702696
+    },
+    {
+      "ID": 53,
+      "direction": 1.6648329159675717,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 26,
+        "genome_b": 74
+      },
+      "x_position": 201.0308821272645,
+      "y_position": -102.77233420109559
+    },
+    {
+      "ID": 54,
+      "direction": 1.881494369214642,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 89,
+        "genome_b": 11
+      },
+      "x_position": 167.05989592553271,
+      "y_position": -132.99850220508054
+    },
+    {
+      "ID": 55,
+      "direction": 2.0981558224617123,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 27,
+        "genome_b": 73
+      },
+      "x_position": 125.27738254898111,
+      "y_position": -157.00581388199049
+    },
+    {
+      "ID": 56,
+      "direction": 2.314817156499493,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 56,
+        "genome_b": 44
+      },
+      "x_position": 77.63704637716188,
+      "y_position": -173.67171411807419
+    },
+    {
+      "ID": 57,
+      "direction": 2.5314786097465634,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 89,
+        "genome_b": 11
+      },
+      "x_position": 26.366495542872777,
+      "y_position": -182.21692232910578
+    },
+    {
+      "ID": 58,
+      "direction": 2.7481400629936337,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 55,
+        "genome_b": 45
+      },
+      "x_position": -26.136924243556539,
+      "y_position": -182.24188785732468
+    },
+    {
+      "ID": 59,
+      "direction": 2.964801516240704,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 29,
+        "genome_b": 71
+      },
+      "x_position": -77.418210911750791,
+      "y_position": -173.74542951172671
+    },
+    {
+      "ID": 60,
+      "direction": 3.1814629694877743,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 36,
+        "genome_b": 64
+      },
+      "x_position": -125.07951795331857,
+      "y_position": -157.12482029625966
+    },
+    {
+      "ID": 61,
+      "direction": 3.3981244227348446,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 20,
+        "genome_b": 80
+      },
+      "x_position": -166.89224943753558,
+      "y_position": -133.15725548693641
+    },
+    {
+      "ID": 62,
+      "direction": 3.6147858759819149,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 100,
+        "genome_b": 0
+      },
+      "x_position": -200.90129034315268,
+      "y_position": -102.9634107364032
+    },
+    {
+      "ID": 63,
+      "direction": 3.7747242181347751,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 65,
+        "genome_b": 35
+      },
+      "x_position": -225.66311923275671,
+      "y_position": -69.750641649417688
+    },
+    {
+      "ID": 64,
+      "direction": 4.0292010787779873,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 99,
+        "genome_b": 1
+      },
+      "x_position": -240.65325755785943,
+      "y_position": -31.626967198634851
+    },
+    {
+      "ID": 65,
+      "direction": 4.1607778653837482,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 26,
+        "genome_b": 74
+      },
+      "x_position": -243.72177823359792,
+      "y_position": 7.3145383798420447
+    },
+    {
+      "ID": 66,
+      "direction": 4.4152549644455403,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 24,
+        "genome_b": 76
+      },
+      "x_position": -234.74990539719695,
+      "y_position": 47.611718888256149
+    },
+    {
+      "ID": 67,
+      "direction": 4.6980933806358589,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 78,
+        "genome_b": 22
+      },
+      "x_position": -214.57439854055568,
+      "y_position": 85.758962595692722
+    },
+    {
+      "ID": 68,
+      "direction": 4.9147548338829292,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 78,
+        "genome_b": 22
+      },
+      "x_position": -185.130869930806,
+      "y_position": 118.58032501110154
+    },
+    {
+      "ID": 69,
+      "direction": 5.1314162871299995,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 65,
+        "genome_b": 35
+      },
+      "x_position": -147.0308371984222,
+      "y_position": 145.85699558811478
+    },
+    {
+      "ID": 70,
+      "direction": 5.3480777403770698,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 68,
+        "genome_b": 32
+      },
+      "x_position": -102.05581717225834,
+      "y_position": 166.31357445547866
+    },
+    {
+      "ID": 71,
+      "direction": 5.5647391936241402,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 80,
+        "genome_b": 20
+      },
+      "x_position": -52.308779341952928,
+      "y_position": 178.99352443220167
+    },
+    {
+      "ID": 72,
+      "direction": -0.50178262978208932,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 54,
+        "genome_b": 46
+      },
+      "x_position": -0.11530954221342071,
+      "y_position": 227.92893749105599
+    },
+    {
+      "ID": 73,
+      "direction": -0.32724967985762032,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 31,
+        "genome_b": 69
+      },
+      "x_position": 52.380969103321974,
+      "y_position": 224.48620765242066
+    },
+    {
+      "ID": 74,
+      "direction": -0.15271675973547402,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 31,
+        "genome_b": 69
+      },
+      "x_position": 103.28567977405267,
+      "y_position": 214.2225775619855
+    },
+    {
+      "ID": 75,
+      "direction": 0.021816190188994639,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 59,
+        "genome_b": 41
+      },
+      "x_position": 151.05210793983619,
+      "y_position": 197.44990490936368
+    },
+    {
+      "ID": 76,
+      "direction": 0.19634907305823829,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 7,
+        "genome_b": 93
+      },
+      "x_position": 194.22888835260775,
+      "y_position": 174.67782469611024
+    },
+    {
+      "ID": 77,
+      "direction": 0.37088196337806267,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 52,
+        "genome_b": 48
+      },
+      "x_position": 231.50411858896666,
+      "y_position": 146.59824091973042
+    },
+    {
+      "ID": 78,
+      "direction": 0.54541486114846793,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 42,
+        "genome_b": 58
+      },
+      "x_position": 261.74522459098677,
+      "y_position": 114.06434524442474
+    },
+    {
+      "ID": 79,
+      "direction": 0.71049389961925702,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 87,
+        "genome_b": 13
+      },
+      "x_position": 284.80686603739684,
+      "y_position": 79.834225671503219
+    },
+    {
+      "ID": 80,
+      "direction": 0.79994209349544265,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 49,
+        "genome_b": 51
+      },
+      "x_position": 299.09280589081209,
+      "y_position": 43.082449212199201
+    },
+    {
+      "ID": 81,
+      "direction": 0.9555672801171966,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 89,
+        "genome_b": 11
+      },
+      "x_position": 304.33066898318816,
+      "y_position": 3.6743558326149368
+    },
+    {
+      "ID": 82,
+      "direction": 1.2435463926254395,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 88,
+        "genome_b": 12
+      },
+      "x_position": 299.16480806645575,
+      "y_position": -38.462075926559905
+    },
+    {
+      "ID": 83,
+      "direction": 1.4180793425499081,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 96,
+        "genome_b": 4
+      },
+      "x_position": 284.11225686161549,
+      "y_position": -77.847873575930763
+    },
+    {
+      "ID": 84,
+      "direction": 1.5926123520790219,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 15,
+        "genome_b": 85
+      },
+      "x_position": 261.86056507903135,
+      "y_position": -113.86456909729704
+    },
+    {
+      "ID": 85,
+      "direction": 1.7671452423988461,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 76,
+        "genome_b": 24
+      },
+      "x_position": 231.65241928461771,
+      "y_position": -146.42152997341483
+    },
+    {
+      "ID": 86,
+      "direction": 1.9416781327186703,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 22,
+        "genome_b": 78
+      },
+      "x_position": 194.40561453437135,
+      "y_position": -174.52953923143153
+    },
+    {
+      "ID": 87,
+      "direction": 2.1162110230384945,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 70,
+        "genome_b": 30
+      },
+      "x_position": 151.2519069561323,
+      "y_position": -197.33456438838368
+    },
+    {
+      "ID": 88,
+      "direction": 2.2907437941490292,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 65,
+        "genome_b": 35
+      },
+      "x_position": 103.50248398627261,
+      "y_position": -214.14367003801561
+    },
+    {
+      "ID": 89,
+      "direction": 2.4652766844688534,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 76,
+        "genome_b": 24
+      },
+      "x_position": 52.608193210695809,
+      "y_position": -224.44614543520123
+    },
+    {
+      "ID": 90,
+      "direction": 2.6398095747886776,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 97,
+        "genome_b": 3
+      },
+      "x_position": 0.11542755005300975,
+      "y_position": -227.92893743927928
+    },
+    {
+      "ID": 91,
+      "direction": 2.8143424651085018,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 100,
+        "genome_b": 0
+      },
+      "x_position": -52.380844616549439,
+      "y_position": -224.48622327774228
+    },
+    {
+      "ID": 92,
+      "direction": 2.9888753554283261,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 95,
+        "genome_b": 5
+      },
+      "x_position": -103.28554762253499,
+      "y_position": -214.22260890587873
+    },
+    {
+      "ID": 93,
+      "direction": 3.1634082457481503,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 96,
+        "genome_b": 4
+      },
+      "x_position": -151.05198334703812,
+      "y_position": -197.44996732125023
+    },
+    {
+      "ID": 94,
+      "direction": 3.3379411360679745,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 64,
+        "genome_b": 36
+      },
+      "x_position": -194.22876406516903,
+      "y_position": -174.67788750275747
+    },
+    {
+      "ID": 95,
+      "direction": 3.5124742648063778,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 93,
+        "genome_b": 7
+      },
+      "x_position": -231.50407169404846,
+      "y_position": -146.59828796595997
+    },
+    {
+      "ID": 96,
+      "direction": 3.687007155126202,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 22,
+        "genome_b": 78
+      },
+      "x_position": -261.74519317372011,
+      "y_position": -114.06440012555836
+    },
+    {
+      "ID": 97,
+      "direction": 3.7953630825027811,
+      "state": {
+        "Opinion": 2,
+        "genome_a": 87,
+        "genome_b": 13
+      },
+      "x_position": -283.89166848721044,
+      "y_position": -79.58034323106321
+    },
+    {
+      "ID": 98,
+      "direction": 3.9415344172755002,
+      "state": {
+        "Opinion": 1,
+        "genome_a": 70,
+        "genome_b": 30
+      },
+      "x_position": -297.82185321823437,
+      "y_position": -41.874766403461578
     },
     {
       "ID": 99,
-      "direction": 4.484767529707713,
+      "direction": 4.1633365668405071,
       "state": {
         "Opinion": 2,
-        "genome_a": 86,
-        "genome_b": 14
+        "genome_a": 98,
+        "genome_b": 2
       },
-      "x_position": -307.65554601041356,
-      "y_position": 0.26288310702609152
+      "x_position": -302.56401813825954,
+      "y_position": -1.1925123675927836
     }
   ],
-  "ticks": 91
+  "ticks": 49
 }
