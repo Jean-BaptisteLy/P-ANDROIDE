@@ -1,0 +1,9 @@
+qualite_consensus_a
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan 
+qualite_consensus_b
+1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 1.000000 
+qualite_consensus_global
+nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan nan Kiloticks du consensus
+57325
+Temps en min du consensus
+30

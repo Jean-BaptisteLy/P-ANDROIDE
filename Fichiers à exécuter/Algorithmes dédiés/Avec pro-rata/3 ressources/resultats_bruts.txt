@@ -1,0 +1,16 @@
+nbre_theorique_a
+16.500000
+nbre_theorique_b
+33.000000
+nbre_theorique_c
+49.500000
+nbre_experimental_a
+25.000000
+nbre_experimental_b
+27.000000
+nbre_experimental_c
+47.000000
+Kiloticks du consensus
+235318
+Temps en min du consensus
+126
